@@ -10,12 +10,15 @@ import UIKit
 
 class DestinationViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate{
     
-    @IBOutlet weak var deliveryServiceCompany: UIPickerView!
+   
+    @IBOutlet weak var deliveryServiceCompany: UITextField!
     @IBOutlet weak var wayBillField: UITextField!
+    
+    var deliveryServiceCompanyPickerView = UIPickerView()
     
     var CompanyNumber = 0
     
-    var pickerDataSource = ["우체국EMS", "FedEx", "UPS", "DHL"];
+    var pickerDataSource = ["우체국EMS", "FedEx", "UPS", "DHL"]
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -30,19 +33,34 @@ class DestinationViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        deliveryServiceCompany.text = pickerDataSource[row]
         CompanyNumber = row
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.deliveryServiceCompany.dataSource = self
-        self.deliveryServiceCompany.delegate = self
+        let toolBar = UIToolbar()
+        toolBar.barStyle = UIBarStyle.default
+        toolBar.isTranslucent = true
+        toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(DestinationViewController.donePicker))
+        
+        toolBar.setItems([doneButton], animated: false)
+        toolBar.isUserInteractionEnabled = true
+        
+        self.deliveryServiceCompanyPickerView.dataSource = self
+        self.deliveryServiceCompanyPickerView.delegate = self
+        deliveryServiceCompany.inputView = deliveryServiceCompanyPickerView
+        deliveryServiceCompany.inputAccessoryView = toolBar
+        
         self.wayBillField.delegate = self
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        self.wayBillField.becomeFirstResponder() //텍스트필드에 포커스
+        //self.wayBillField.becomeFirstResponder() //텍스트필드에 포커스
     }
     
     override func didReceiveMemoryWarning() {
@@ -58,7 +76,9 @@ class DestinationViewController: UIViewController, UIPickerViewDelegate, UIPicke
         return true
     }
     
-   
+    func donePicker() {
+        deliveryServiceCompany.resignFirstResponder()
+    }
 
     @IBAction func Join(_ sender: Any) {
         self.performSegue(withIdentifier: "Destination", sender: self)
@@ -69,15 +89,5 @@ class DestinationViewController: UIViewController, UIPickerViewDelegate, UIPicke
         join.CompanyNumber = CompanyNumber
         join.wayBillString = wayBillField.text!
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

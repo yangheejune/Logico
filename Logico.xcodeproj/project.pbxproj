@@ -19,6 +19,9 @@
 		AB95BA8A1F60E4FA00CCFC9D /* LogicoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB95BA891F60E4FA00CCFC9D /* LogicoTests.swift */; };
 		AB95BA951F60EF9800CCFC9D /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB95BA941F60EF9800CCFC9D /* LaunchScreenViewController.swift */; };
 		AB9E85BD1F62742300986ABA /* globalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9E85BC1F62742300986ABA /* globalVariables.swift */; };
+		ABBCF66A1F6771770044CBD7 /* InquiryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBCF6691F6771770044CBD7 /* InquiryViewController.swift */; };
+		ABBCF66C1F68FAC70044CBD7 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBCF66B1F68FAC70044CBD7 /* WebViewController.swift */; };
+		ABBCF66E1F6903520044CBD7 /* myMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBCF66D1F6903520044CBD7 /* myMenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,9 @@
 		AB95BA8B1F60E4FA00CCFC9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB95BA941F60EF9800CCFC9D /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		AB9E85BC1F62742300986ABA /* globalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = globalVariables.swift; sourceTree = "<group>"; };
+		ABBCF6691F6771770044CBD7 /* InquiryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InquiryViewController.swift; sourceTree = "<group>"; };
+		ABBCF66B1F68FAC70044CBD7 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		ABBCF66D1F6903520044CBD7 /* myMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myMenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +114,9 @@
 				AB20EC101F611F1C00A4CCD3 /* DestinationViewController.swift */,
 				AB103C071F62CC2000AE8DB0 /* JoinViewController.swift */,
 				AB20EC0E1F611EFD00A4CCD3 /* DeliveryViewController.swift */,
+				ABBCF6691F6771770044CBD7 /* InquiryViewController.swift */,
+				ABBCF66B1F68FAC70044CBD7 /* WebViewController.swift */,
+				ABBCF66D1F6903520044CBD7 /* myMenuViewController.swift */,
 				AB95BA941F60EF9800CCFC9D /* LaunchScreenViewController.swift */,
 				AB95BA781F60E4FA00CCFC9D /* Main.storyboard */,
 				AB95BA7B1F60E4FA00CCFC9D /* Assets.xcassets */,
@@ -304,11 +313,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				AB9E85BD1F62742300986ABA /* globalVariables.swift in Sources */,
+				ABBCF66C1F68FAC70044CBD7 /* WebViewController.swift in Sources */,
 				AB95BA771F60E4FA00CCFC9D /* ViewController.swift in Sources */,
 				AB95BA951F60EF9800CCFC9D /* LaunchScreenViewController.swift in Sources */,
 				AB20EC0F1F611EFD00A4CCD3 /* DeliveryViewController.swift in Sources */,
+				ABBCF66E1F6903520044CBD7 /* myMenuViewController.swift in Sources */,
 				AB95BA751F60E4FA00CCFC9D /* AppDelegate.swift in Sources */,
 				AB20EC111F611F1C00A4CCD3 /* DestinationViewController.swift in Sources */,
+				ABBCF66A1F6771770044CBD7 /* InquiryViewController.swift in Sources */,
 				AB103C081F62CC2000AE8DB0 /* JoinViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

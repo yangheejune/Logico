@@ -11,8 +11,6 @@ import Realm
 import RealmSwift
 
 class JoinViewController: UIViewController {
-    @IBOutlet weak var Waybill: UILabel!
-    
     @IBOutlet weak var BeginDate: UILabel!
     @IBOutlet weak var BeginAddress: UILabel!
     
@@ -21,8 +19,6 @@ class JoinViewController: UIViewController {
     
     @IBOutlet weak var EndDate: UILabel!
     @IBOutlet weak var EndAddress: UILabel!
-    
-    @IBOutlet weak var CompanyImage: UIImageView!
     
     var CompanyNumber = 0
     var wayBillString = ""
@@ -45,25 +41,26 @@ class JoinViewController: UIViewController {
         
         let deliveryitem = realm.objects(cDeliveryItem.self).filter("deliveryservicename == \(CompanyNumber) AND waybill = '\(wayBillString)'").first
         
-        Waybill.text = "운송장 번호" + (deliveryitem?.waybill)!
-        
-        switch CompanyNumber {
-        case 0:
-            self.CompanyImage.image = UIImage(named: "")
-        default:
-            <#code#>
+        if deliveryitem != nil {
+            BeginDate.text = formatter.string(from: (deliveryitem?.deliveryBegin)!)
+            BeginAddress.text = deliveryitem?.deliveryBeginAddress
+            
+            EndDate.text = formatter.string(from: (deliveryitem?.deliveryEnd)!)
+            EndAddress.text = deliveryitem?.deliveryEndAddress
+            LocationAddress.text = deliveryitem?.deliveryLocation
+            LocationDate.text = formatter.string(from: (deliveryitem?.deliveryLocationDate)!)
         }
-        
-        //let DeliveryServiceName = deliveryitem?.deliveryservicename
-        BeginDate.text = formatter.string(from: (deliveryitem?.deliveryBegin)!)
-        BeginAddress.text = deliveryitem?.deliveryBeginAddress
-        
-        EndDate.text = formatter.string(from: (deliveryitem?.deliveryEnd)!)
-        EndAddress.text = deliveryitem?.deliveryEndAddress
-        LocationAddress.text = deliveryitem?.deliveryLocation
-        LocationDate.text = formatter.string(from: (deliveryitem?.deliveryLocationDate)!)
-        
-        
+        else {
+
+            // 알람
+            let alert = UIAlertController(title: "조회 실패", message: "업체와 운송장 번호가 맞지 않습니다.", preferredStyle: UIAlertControllerStyle.alert)
+            
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.default, handler: nil))
+            
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 
     override func didReceiveMemoryWarning() {
