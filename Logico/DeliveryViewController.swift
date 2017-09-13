@@ -127,7 +127,7 @@ class DeliveryViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         self.DeliveryCount.delegate = self
 
         DeliverType.inputView = DeliveryTypePickerView
-        DeliverType.text = "서류"
+        DeliverType.text = nil
         DeliverType.inputAccessoryView = toolBar
         
         
@@ -145,7 +145,30 @@ class DeliveryViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         //self.wayBillField.becomeFirstResponder() //텍스트필드에 포커스
+        DeliveryTypePickerNumber = 0
+        DeliveryPickerNumber = 0
+        DestinationPickerNumber = 0
+        WeightPickerNumber = 0
+        DeliveryItemCount = 0
+        
+        DeliverType.text = nil
+        DeliveryCountry.text = "대한민국"
+        WeightField.text = nil
+        DeliveryCount.text = nil
+        DeliveryCity.text = nil
+        DeliveryZipcode.text = nil
+        DestinationCountry.text = nil
+        DestinationCity.text = nil
+        DestinationZipcode.text = nil
+        Volume_horizontal.text = nil
+        Volume_Vertical.text = nil
+        Volume_Height.text = nil
+        
+        self.view.setNeedsDisplay()
+        
     }
 
     override func didReceiveMemoryWarning() {

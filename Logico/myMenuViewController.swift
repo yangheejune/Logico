@@ -21,7 +21,7 @@ class myMenuTableViewCell: UITableViewCell {
 class myMenuViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     let realm = try! Realm()
-    var gDeliveryitem = [cDeliveryServiceInfo]()
+    var gDeliveryitem = [cMyMenu]()
     
     @IBOutlet fileprivate var myMenuTableView: UITableView!
     
@@ -32,8 +32,6 @@ class myMenuViewController: UIViewController, UITableViewDelegate, UITableViewDa
         myMenuTableView.dataSource = self
         
         gDeliveryitem = getRealmDate()
-
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,8 +39,17 @@ class myMenuViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        gDeliveryitem = getRealmDate()
+        
+        myMenuTableView.reloadData()
+        
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return gDeliveryitem.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -52,13 +59,13 @@ class myMenuViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return cell
         }
         
-        cell.CompanyImage.image = UIImage(named: "dhl")
+        cell.CompanyImage.image = UIImage(named: "ems")
         
         cell.CompanyName.text = gDeliveryitem[indexPath.row].deliveryServiceName
         if gDeliveryitem[indexPath.row].deliveryType == 0 {
-            cell.DerliveryType.text = "비서류"
-        } else {
             cell.DerliveryType.text = "서류"
+        } else {
+            cell.DerliveryType.text = "비서류"
         }
         
         cell.DeliveryTerm.text = gDeliveryitem[indexPath.row].deliveryRequestTime
@@ -74,11 +81,13 @@ class myMenuViewController: UIViewController, UITableViewDelegate, UITableViewDa
         viewController.DestinationServiceType = gDeliveryitem[indexPath.row].deliveryServiceName
     }
     
-    func getRealmDate() -> [cDeliveryServiceInfo] {
-        var rtTotalTask = [cDeliveryServiceInfo]()
-        let deliveryitem = realm.objects(cDeliveryServiceInfo.self)
-        for cDeliveryServiceInfo in deliveryitem{
-            rtTotalTask.append(cDeliveryServiceInfo)
+    func getRealmDate() -> [cMyMenu] {
+        var rtTotalTask = [cMyMenu]()
+        let deliveryitem = realm.objects(cMyMenu.self)
+        print("mymenu : \(deliveryitem)")
+        
+        for cMyMenu in deliveryitem{
+            rtTotalTask.append(cMyMenu)
         }
         return rtTotalTask
     }

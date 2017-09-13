@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logico/DestinationViewController.swift"
-            timestampString = "526907353.305328"
+            timestampString = "526979672.070363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
             landmarkName = "Join(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -170,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logico/DeliveryViewController.swift"
-            timestampString = "526906635.348224"
+            timestampString = "526979672.070363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "179"
-            endingLineNumber = "179"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -186,11 +186,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logico/DeliveryViewController.swift"
-            timestampString = "526906635.348224"
+            timestampString = "526979672.070363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "193"
-            endingLineNumber = "193"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
             landmarkName = "textFieldShouldReturn(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -202,11 +202,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logico/DeliveryViewController.swift"
-            timestampString = "526906635.348224"
+            timestampString = "526979672.070363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
             landmarkName = "textFieldShouldBeginEditing(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -218,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Logico/DeliveryViewController.swift"
-            timestampString = "526906635.348224"
+            timestampString = "526979672.070363"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "viewDidAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -385,6 +385,86 @@
             endingLineNumber = "18"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Logico/DeliveryViewController.swift"
+            timestampString = "526979672.070363"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "170"
+            endingLineNumber = "170"
+            landmarkName = "viewDidAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Logico/InquiryViewController.swift"
+            timestampString = "526980351.512255"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Logico/InquiryViewController.swift"
+            timestampString = "526980521.142928"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "263"
+            endingLineNumber = "263"
+            landmarkName = "addDeliveryServiceInfo(deliveryServiceName:deliveryType:deliveryCountry:deliveryWeight:deliveryCost:deliveryRequestTime:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Logico.InquiryViewController.addDeliveryServiceInfo (deliveryServiceName : Swift.String, deliveryType : Swift.Int, deliveryCountry : Swift.Int, deliveryWeight : Swift.Double, deliveryCost : Swift.Int, deliveryRequestTime : Swift.String) -&gt; ()"
+                  moduleName = "Logico"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yangheejun/SI/Logico/InquiryViewController.swift"
+                  timestampString = "526980663.561481"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "263"
+                  endingLineNumber = "263"
+                  offsetFromSymbolStart = "400">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Logico.InquiryViewController.(addDeliveryServiceInfo (deliveryServiceName : Swift.String, deliveryType : Swift.Int, deliveryCountry : Swift.Int, deliveryWeight : Swift.Double, deliveryCost : Swift.Int, deliveryRequestTime : Swift.String) -&gt; ()).(closure #1)"
+                  moduleName = "Logico"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yangheejun/SI/Logico/InquiryViewController.swift"
+                  timestampString = "526980663.563209"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "264"
+                  endingLineNumber = "264"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

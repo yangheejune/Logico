@@ -60,7 +60,16 @@ class DestinationViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        //self.wayBillField.becomeFirstResponder() //텍스트필드에 포커스
+        super.viewWillAppear(animated)
+        
+        deliveryServiceCompany.text = nil
+        wayBillField.text = nil
+        
+        CompanyNumber = 0
+        
+        super.viewWillAppear(animated)
+
+        self.view.setNeedsDisplay()
     }
     
     override func didReceiveMemoryWarning() {

@@ -66,8 +66,17 @@ class InquiryViewController: UIViewController, UITableViewDataSource, UITableVie
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        gDeliveryitem = getRealmDate()
+        
+        InquiryTableView.reloadData()
+        
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return gDeliveryitem.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -80,10 +89,11 @@ class InquiryViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.CompanyImage.image = UIImage(named: "dhl")
         
         cell.CompanyName.text = gDeliveryitem[indexPath.row].deliveryServiceName
+        print("종류 : \(gDeliveryitem[indexPath.row].deliveryType)")
         if gDeliveryitem[indexPath.row].deliveryType == 0 {
-            cell.DerliveryType.text = "비서류"
-        } else {
             cell.DerliveryType.text = "서류"
+        } else {
+            cell.DerliveryType.text = "비서류"
         }
         
         cell.DeliveryTerm.text = gDeliveryitem[indexPath.row].deliveryRequestTime
