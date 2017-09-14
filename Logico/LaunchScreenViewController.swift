@@ -42,6 +42,8 @@ class cMyMenu: Object {
 class LaunchScreenViewController: UIViewController {
     
     let realm = try! Realm()
+    
+    @IBOutlet weak var launchImage: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +56,27 @@ class LaunchScreenViewController: UIViewController {
             realm.deleteAll()
         }
         
-        perform(#selector(LaunchScreenViewController.ShowNavController), with: nil, afterDelay: 2)
+        
+        perform(#selector(LaunchScreenViewController.ShowNavController), with: nil, afterDelay: 5)
+        
+        //UIView.animate(withDuration: 5.0, animations: {
+            //self.launchImage.frame.origin.y = 100
+        //}, completion: nil)
+        
+        UIView.animate(withDuration: 5.0, animations: ({
+            
+            self.launchImage.transform = CGAffineTransform(translationX: 100, y: 100)
+            // 가로 100, 세로 100 만큼 움직이는 메소드
+            
+            //self.launchImage.transform = CGAffineTransform(scaleX: 2, y: 2)
+            // 가로 2배, 세로 2배 키우는 메소드
+            
+            //self.launchImage.transform = CGAffineTransform(rotationAngle: 3.14)
+            // 객체를 회전하는 메소드!
+            
+            
+        }))
+
 
         // 중국
         addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: (0.3), deliveryCost: 20000, deliveryRequestTime: "2~4")
@@ -132,7 +154,7 @@ class LaunchScreenViewController: UIViewController {
     }
     
     func ShowNavController() {
-        self.performSegue(withIdentifier: "LaunchScreen", sender: self)
+        self.performSegue(withIdentifier: "LaunchScreen2", sender: self)
     }
     
     func addDeliveryItem(waybill: String, deliveryservicename: Int, deliveryBegin: Date, deliveryBeginAddress: String, deliveryEnd: Date, deliveryEndAddress: String, deliveryLocationDate: Date, deliveryLocation: String) {

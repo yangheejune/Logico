@@ -44,6 +44,11 @@ class DeliveryViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 
     var dimmingView: UIView!
     
+    class func create() -> UIViewController {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        return mainStoryboard.instantiateViewController(withIdentifier: String(describing: self)) as! DeliveryViewController
+    }
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -94,11 +99,6 @@ class DeliveryViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        dimmingView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height))
-        dimmingView.backgroundColor = UIColor.black.withAlphaComponent(0.2)
-        self.view.addSubview(dimmingView)
-        dimmingView.isHidden = true
         
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.default
@@ -176,23 +176,38 @@ class DeliveryViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
 
     }
     
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        if textField == DestinationCountry || textField == DeliveryCountry || textField == DeliverType || textField == WeightField {
-            dimmingView.isHidden = false
-        }
-        
-        return true
-    }
-    
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if textField == DestinationCountry || textField == DeliveryCountry || textField == DeliverType || textField == WeightField {
-            dimmingView.isHidden = true
-        }
-        return true
-    }
-    
     @IBAction func Inquiry(_ sender: Any) {
-        self.performSegue(withIdentifier: "Delivery", sender: self)
+        //self.performSegue(withIdentifier: "Delivery", sender: self)
+    }
+    
+    @IBAction func DestinationHelp(_ sender: Any) {
+        let popup: DestinationPopupView = UINib(nibName: "DestinationPopupView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! DestinationPopupView
+        
+        let viewColor = UIColor.brown
+        popup.backgroundColor = viewColor.withAlphaComponent(0.3)
+        popup.frame = self.view.frame
+        
+        let baseViewColor = UIColor.white
+        popup.baseTextView.backgroundColor = baseViewColor.withAlphaComponent(0.8)
+        
+        popup.baseTextView.layer.cornerRadius = 9.0
+        
+        self.view.addSubview(popup)
+    }
+    
+    @IBAction func WeightHelp(_ sender: Any) {
+        let popup: WeightPopupView = UINib(nibName: "WeightPopupView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! WeightPopupView
+        
+        let viewColor = UIColor.brown
+        popup.backgroundColor = viewColor.withAlphaComponent(0.3)
+        popup.frame = self.view.frame
+        
+        let baseViewColor = UIColor.white
+        popup.baseTextView.backgroundColor = baseViewColor.withAlphaComponent(0.8)
+        
+        popup.baseTextView.layer.cornerRadius = 9.0
+        
+        self.view.addSubview(popup)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

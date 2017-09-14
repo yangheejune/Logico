@@ -11,6 +11,7 @@ import Realm
 import RealmSwift
 
 class JoinViewController: UIViewController {
+    
     @IBOutlet weak var BeginDate: UILabel!
     @IBOutlet weak var BeginAddress: UILabel!
     
@@ -66,6 +67,21 @@ class JoinViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func helpPopup(_ sender: Any) {
+        let popup: DeliveryPopupView = UINib(nibName: "DeliveryPopupView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! DeliveryPopupView
+        
+        let viewColor = UIColor.brown
+        popup.backgroundColor = viewColor.withAlphaComponent(0.3)
+        popup.frame = self.view.frame
+        
+        let baseViewColor = UIColor.white
+        popup.baseTextView.backgroundColor = baseViewColor.withAlphaComponent(0.8)
+        
+        popup.baseTextView.layer.cornerRadius = 9.0
+        
+        self.view.addSubview(popup)
     }
     
 

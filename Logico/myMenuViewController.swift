@@ -28,6 +28,10 @@ class myMenuViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationController?.navigationBar.barTintColor = ColorPalette.topColor
+        
+        self.tabBarController?.tabBar.barTintColor = ColorPalette.topColor
+        
         myMenuTableView.delegate = self
         myMenuTableView.dataSource = self
         

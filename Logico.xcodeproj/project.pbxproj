@@ -7,14 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9650BE0F0BC6088FF9F6A41B /* Pods_Logico.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 449368B03902487667E1BA80 /* Pods_Logico.framework */; };
 		AB103C081F62CC2000AE8DB0 /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB103C071F62CC2000AE8DB0 /* JoinViewController.swift */; };
 		AB20EC0F1F611EFD00A4CCD3 /* DeliveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB20EC0E1F611EFD00A4CCD3 /* DeliveryViewController.swift */; };
 		AB20EC111F611F1C00A4CCD3 /* DestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB20EC101F611F1C00A4CCD3 /* DestinationViewController.swift */; };
+		AB5496E41F69202400A60345 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB5496E31F69202400A60345 /* Assets.xcassets */; };
+		AB5496E61F69255000A60345 /* LaunchScreen1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5496E51F69255000A60345 /* LaunchScreen1ViewController.swift */; };
+		AB5496E81F69256700A60345 /* LaunchScreen2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5496E71F69256700A60345 /* LaunchScreen2ViewController.swift */; };
+		AB6508151F6A19CB00382CB4 /* DestinationPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB6508141F6A19CB00382CB4 /* DestinationPopupView.xib */; };
+		AB6508171F6A19F700382CB4 /* WeightPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6508161F6A19F700382CB4 /* WeightPopupView.swift */; };
+		AB6508191F6A23EB00382CB4 /* DestinationPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6508181F6A23EB00382CB4 /* DestinationPopupView.swift */; };
+		AB65081B1F6A264200382CB4 /* WeightPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB65081A1F6A264200382CB4 /* WeightPopupView.xib */; };
+		AB8E04641F6A3E7C00379E1F /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E04631F6A3E7C00379E1F /* CategoryViewController.swift */; };
+		AB8E04661F6A453C00379E1F /* MirrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E04651F6A453C00379E1F /* MirrorViewController.swift */; };
+		AB8E04681F6A490000379E1F /* PickupScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E04671F6A490000379E1F /* PickupScheduleViewController.swift */; };
+		AB8E046A1F6A4D5700379E1F /* SegmentioBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E04691F6A4D5700379E1F /* SegmentioBuilder.swift */; };
+		AB8E046D1F6A4DCF00379E1F /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E046B1F6A4DCF00379E1F /* ColorPalette.swift */; };
+		AB8E046E1F6A4DCF00379E1F /* Hints.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E046C1F6A4DCF00379E1F /* Hints.swift */; };
+		AB8E04761F6A4EA600379E1F /* String+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E04721F6A4EA600379E1F /* String+Convenience.swift */; };
+		AB8E04771F6A4EA600379E1F /* UIColor+RGB.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E04731F6A4EA600379E1F /* UIColor+RGB.swift */; };
+		AB8E04781F6A4EA600379E1F /* UIFont+ExampleFonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E04741F6A4EA600379E1F /* UIFont+ExampleFonts.swift */; };
+		AB8E04791F6A4EA600379E1F /* UINavigationBar+Flat.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E04751F6A4EA600379E1F /* UINavigationBar+Flat.swift */; };
+		AB8E04821F6A511900379E1F /* ParentsCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E04811F6A511900379E1F /* ParentsCategoryViewController.swift */; };
+		AB8E04841F6A953700379E1F /* DeliveryPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB8E04831F6A953700379E1F /* DeliveryPopupView.xib */; };
+		AB8E04861F6A967800379E1F /* DeliveryPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E04851F6A967800379E1F /* DeliveryPopupView.swift */; };
+		AB8E04881F6AD69F00379E1F /* HomeDeliveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E04871F6AD69F00379E1F /* HomeDeliveryViewController.swift */; };
 		AB95BA751F60E4FA00CCFC9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB95BA741F60E4FA00CCFC9D /* AppDelegate.swift */; };
-		AB95BA771F60E4FA00CCFC9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB95BA761F60E4FA00CCFC9D /* ViewController.swift */; };
 		AB95BA7A1F60E4FA00CCFC9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB95BA781F60E4FA00CCFC9D /* Main.storyboard */; };
-		AB95BA7C1F60E4FA00CCFC9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB95BA7B1F60E4FA00CCFC9D /* Assets.xcassets */; };
 		AB95BA7F1F60E4FA00CCFC9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB95BA7D1F60E4FA00CCFC9D /* LaunchScreen.storyboard */; };
 		AB95BA8A1F60E4FA00CCFC9D /* LogicoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB95BA891F60E4FA00CCFC9D /* LogicoTests.swift */; };
 		AB95BA951F60EF9800CCFC9D /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB95BA941F60EF9800CCFC9D /* LaunchScreenViewController.swift */; };
@@ -22,6 +40,7 @@
 		ABBCF66A1F6771770044CBD7 /* InquiryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBCF6691F6771770044CBD7 /* InquiryViewController.swift */; };
 		ABBCF66C1F68FAC70044CBD7 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBCF66B1F68FAC70044CBD7 /* WebViewController.swift */; };
 		ABBCF66E1F6903520044CBD7 /* myMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBCF66D1F6903520044CBD7 /* myMenuViewController.swift */; };
+		BBE1EF544D0B11D20592C9DF /* Pods_Logico.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3D7900846DA5F288A8CC77 /* Pods_Logico.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,17 +54,35 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0A47FFDE384729B847AF0800 /* Pods-Logico.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Logico.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Logico/Pods-Logico.debug.xcconfig"; sourceTree = "<group>"; };
-		449368B03902487667E1BA80 /* Pods_Logico.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Logico.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		520AB886379EE1C88819AE7F /* Pods-Logico.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Logico.release.xcconfig"; path = "Pods/Target Support Files/Pods-Logico/Pods-Logico.release.xcconfig"; sourceTree = "<group>"; };
+		406BA3033929EC2766E43831 /* Pods-Logico.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Logico.release.xcconfig"; path = "Pods/Target Support Files/Pods-Logico/Pods-Logico.release.xcconfig"; sourceTree = "<group>"; };
+		7FDD19C6F92DE3C526B7E14F /* Pods-Logico.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Logico.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Logico/Pods-Logico.debug.xcconfig"; sourceTree = "<group>"; };
 		AB103C071F62CC2000AE8DB0 /* JoinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		AB20EC0E1F611EFD00A4CCD3 /* DeliveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryViewController.swift; sourceTree = "<group>"; };
 		AB20EC101F611F1C00A4CCD3 /* DestinationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationViewController.swift; sourceTree = "<group>"; };
+		AB5496E31F69202400A60345 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		AB5496E51F69255000A60345 /* LaunchScreen1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreen1ViewController.swift; sourceTree = "<group>"; };
+		AB5496E71F69256700A60345 /* LaunchScreen2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreen2ViewController.swift; sourceTree = "<group>"; };
+		AB6508141F6A19CB00382CB4 /* DestinationPopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DestinationPopupView.xib; sourceTree = "<group>"; };
+		AB6508161F6A19F700382CB4 /* WeightPopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightPopupView.swift; sourceTree = "<group>"; };
+		AB6508181F6A23EB00382CB4 /* DestinationPopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationPopupView.swift; sourceTree = "<group>"; };
+		AB65081A1F6A264200382CB4 /* WeightPopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeightPopupView.xib; sourceTree = "<group>"; };
+		AB8E04631F6A3E7C00379E1F /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		AB8E04651F6A453C00379E1F /* MirrorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MirrorViewController.swift; sourceTree = "<group>"; };
+		AB8E04671F6A490000379E1F /* PickupScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickupScheduleViewController.swift; sourceTree = "<group>"; };
+		AB8E04691F6A4D5700379E1F /* SegmentioBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioBuilder.swift; sourceTree = "<group>"; };
+		AB8E046B1F6A4DCF00379E1F /* ColorPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
+		AB8E046C1F6A4DCF00379E1F /* Hints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hints.swift; sourceTree = "<group>"; };
+		AB8E04721F6A4EA600379E1F /* String+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "String+Convenience.swift"; path = "Extensions/String+Convenience.swift"; sourceTree = "<group>"; };
+		AB8E04731F6A4EA600379E1F /* UIColor+RGB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIColor+RGB.swift"; path = "Extensions/UIColor+RGB.swift"; sourceTree = "<group>"; };
+		AB8E04741F6A4EA600379E1F /* UIFont+ExampleFonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIFont+ExampleFonts.swift"; path = "Extensions/UIFont+ExampleFonts.swift"; sourceTree = "<group>"; };
+		AB8E04751F6A4EA600379E1F /* UINavigationBar+Flat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UINavigationBar+Flat.swift"; path = "Extensions/UINavigationBar+Flat.swift"; sourceTree = "<group>"; };
+		AB8E04811F6A511900379E1F /* ParentsCategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentsCategoryViewController.swift; sourceTree = "<group>"; };
+		AB8E04831F6A953700379E1F /* DeliveryPopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeliveryPopupView.xib; sourceTree = "<group>"; };
+		AB8E04851F6A967800379E1F /* DeliveryPopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryPopupView.swift; sourceTree = "<group>"; };
+		AB8E04871F6AD69F00379E1F /* HomeDeliveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDeliveryViewController.swift; sourceTree = "<group>"; };
 		AB95BA711F60E4FA00CCFC9D /* Logico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Logico.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB95BA741F60E4FA00CCFC9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		AB95BA761F60E4FA00CCFC9D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AB95BA791F60E4FA00CCFC9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		AB95BA7B1F60E4FA00CCFC9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AB95BA7E1F60E4FA00CCFC9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AB95BA801F60E4FA00CCFC9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB95BA851F60E4FA00CCFC9D /* LogicoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LogicoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,6 +93,7 @@
 		ABBCF6691F6771770044CBD7 /* InquiryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InquiryViewController.swift; sourceTree = "<group>"; };
 		ABBCF66B1F68FAC70044CBD7 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		ABBCF66D1F6903520044CBD7 /* myMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myMenuViewController.swift; sourceTree = "<group>"; };
+		CE3D7900846DA5F288A8CC77 /* Pods_Logico.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Logico.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9650BE0F0BC6088FF9F6A41B /* Pods_Logico.framework in Frameworks */,
+				BBE1EF544D0B11D20592C9DF /* Pods_Logico.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,12 +115,101 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7FBA83CD9C35DE993F729BC4 /* Frameworks */ = {
+		5F669452B6CBF712C3DAEB0E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				449368B03902487667E1BA80 /* Pods_Logico.framework */,
+				7FDD19C6F92DE3C526B7E14F /* Pods-Logico.debug.xcconfig */,
+				406BA3033929EC2766E43831 /* Pods-Logico.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		851BE6FF24D6F3F4D2942831 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE3D7900846DA5F288A8CC77 /* Pods_Logico.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AB8E047A1F6A4F2C00379E1F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AB8E04721F6A4EA600379E1F /* String+Convenience.swift */,
+				AB8E04731F6A4EA600379E1F /* UIColor+RGB.swift */,
+				AB8E04741F6A4EA600379E1F /* UIFont+ExampleFonts.swift */,
+				AB8E04751F6A4EA600379E1F /* UINavigationBar+Flat.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		AB8E047B1F6A4F4200379E1F /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				AB6508141F6A19CB00382CB4 /* DestinationPopupView.xib */,
+				AB65081A1F6A264200382CB4 /* WeightPopupView.xib */,
+				AB8E04831F6A953700379E1F /* DeliveryPopupView.xib */,
+				AB95BA781F60E4FA00CCFC9D /* Main.storyboard */,
+				AB95BA7D1F60E4FA00CCFC9D /* LaunchScreen.storyboard */,
+				AB95BA941F60EF9800CCFC9D /* LaunchScreenViewController.swift */,
+				AB5496E51F69255000A60345 /* LaunchScreen1ViewController.swift */,
+				AB5496E71F69256700A60345 /* LaunchScreen2ViewController.swift */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		AB8E047C1F6A4F5300379E1F /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AB8E04631F6A3E7C00379E1F /* CategoryViewController.swift */,
+				AB8E04651F6A453C00379E1F /* MirrorViewController.swift */,
+				AB20EC101F611F1C00A4CCD3 /* DestinationViewController.swift */,
+				AB103C071F62CC2000AE8DB0 /* JoinViewController.swift */,
+				AB20EC0E1F611EFD00A4CCD3 /* DeliveryViewController.swift */,
+				ABBCF6691F6771770044CBD7 /* InquiryViewController.swift */,
+				ABBCF66B1F68FAC70044CBD7 /* WebViewController.swift */,
+				ABBCF66D1F6903520044CBD7 /* myMenuViewController.swift */,
+				AB8E04671F6A490000379E1F /* PickupScheduleViewController.swift */,
+				AB8E04811F6A511900379E1F /* ParentsCategoryViewController.swift */,
+				AB8E04871F6AD69F00379E1F /* HomeDeliveryViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		AB8E047D1F6A4F8B00379E1F /* PopupViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AB6508181F6A23EB00382CB4 /* DestinationPopupView.swift */,
+				AB6508161F6A19F700382CB4 /* WeightPopupView.swift */,
+				AB8E04851F6A967800379E1F /* DeliveryPopupView.swift */,
+			);
+			name = PopupViewControllers;
+			sourceTree = "<group>";
+		};
+		AB8E047E1F6A4FC100379E1F /* Resorces */ = {
+			isa = PBXGroup;
+			children = (
+				AB8E046B1F6A4DCF00379E1F /* ColorPalette.swift */,
+				AB8E046C1F6A4DCF00379E1F /* Hints.swift */,
+				AB5496E31F69202400A60345 /* Assets.xcassets */,
+			);
+			name = Resorces;
+			sourceTree = "<group>";
+		};
+		AB8E047F1F6A4FD900379E1F /* Builders */ = {
+			isa = PBXGroup;
+			children = (
+				AB8E04691F6A4D5700379E1F /* SegmentioBuilder.swift */,
+			);
+			name = Builders;
+			sourceTree = "<group>";
+		};
+		AB8E04801F6A4FF800379E1F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AB9E85BC1F62742300986ABA /* globalVariables.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		AB95BA681F60E4F900CCFC9D = {
@@ -91,8 +218,8 @@
 				AB95BA731F60E4FA00CCFC9D /* Logico */,
 				AB95BA881F60E4FA00CCFC9D /* LogicoTests */,
 				AB95BA721F60E4FA00CCFC9D /* Products */,
-				C4B90F6DAC22573EF637E7F9 /* Pods */,
-				7FBA83CD9C35DE993F729BC4 /* Frameworks */,
+				5F669452B6CBF712C3DAEB0E /* Pods */,
+				851BE6FF24D6F3F4D2942831 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,19 +235,14 @@
 		AB95BA731F60E4FA00CCFC9D /* Logico */ = {
 			isa = PBXGroup;
 			children = (
-				AB9E85BC1F62742300986ABA /* globalVariables.swift */,
 				AB95BA741F60E4FA00CCFC9D /* AppDelegate.swift */,
-				AB95BA761F60E4FA00CCFC9D /* ViewController.swift */,
-				AB20EC101F611F1C00A4CCD3 /* DestinationViewController.swift */,
-				AB103C071F62CC2000AE8DB0 /* JoinViewController.swift */,
-				AB20EC0E1F611EFD00A4CCD3 /* DeliveryViewController.swift */,
-				ABBCF6691F6771770044CBD7 /* InquiryViewController.swift */,
-				ABBCF66B1F68FAC70044CBD7 /* WebViewController.swift */,
-				ABBCF66D1F6903520044CBD7 /* myMenuViewController.swift */,
-				AB95BA941F60EF9800CCFC9D /* LaunchScreenViewController.swift */,
-				AB95BA781F60E4FA00CCFC9D /* Main.storyboard */,
-				AB95BA7B1F60E4FA00CCFC9D /* Assets.xcassets */,
-				AB95BA7D1F60E4FA00CCFC9D /* LaunchScreen.storyboard */,
+				AB8E04801F6A4FF800379E1F /* Models */,
+				AB8E047F1F6A4FD900379E1F /* Builders */,
+				AB8E047E1F6A4FC100379E1F /* Resorces */,
+				AB8E047D1F6A4F8B00379E1F /* PopupViewControllers */,
+				AB8E047C1F6A4F5300379E1F /* ViewControllers */,
+				AB8E047B1F6A4F4200379E1F /* Storyboards */,
+				AB8E047A1F6A4F2C00379E1F /* Extensions */,
 				AB95BA801F60E4FA00CCFC9D /* Info.plist */,
 			);
 			path = Logico;
@@ -135,15 +257,6 @@
 			path = LogicoTests;
 			sourceTree = "<group>";
 		};
-		C4B90F6DAC22573EF637E7F9 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0A47FFDE384729B847AF0800 /* Pods-Logico.debug.xcconfig */,
-				520AB886379EE1C88819AE7F /* Pods-Logico.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -151,12 +264,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB95BA8E1F60E4FA00CCFC9D /* Build configuration list for PBXNativeTarget "Logico" */;
 			buildPhases = (
-				2E80A3B186391DF868F32539 /* [CP] Check Pods Manifest.lock */,
+				008B7EAF62408297896DEAC4 /* [CP] Check Pods Manifest.lock */,
 				AB95BA6D1F60E4F900CCFC9D /* Sources */,
 				AB95BA6E1F60E4F900CCFC9D /* Frameworks */,
 				AB95BA6F1F60E4F900CCFC9D /* Resources */,
-				A8B10FDF37DCB897939586BA /* [CP] Embed Pods Frameworks */,
-				D41CA26F369BE7903C28A9CA /* [CP] Copy Pods Resources */,
+				5995D40B22ECFA90A69BDD97 /* [CP] Embed Pods Frameworks */,
+				AFF6AEEF6C47CF8BD062BA3A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -232,8 +345,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB65081B1F6A264200382CB4 /* WeightPopupView.xib in Resources */,
 				AB95BA7F1F60E4FA00CCFC9D /* LaunchScreen.storyboard in Resources */,
-				AB95BA7C1F60E4FA00CCFC9D /* Assets.xcassets in Resources */,
+				AB6508151F6A19CB00382CB4 /* DestinationPopupView.xib in Resources */,
+				AB8E04841F6A953700379E1F /* DeliveryPopupView.xib in Resources */,
+				AB5496E41F69202400A60345 /* Assets.xcassets in Resources */,
 				AB95BA7A1F60E4FA00CCFC9D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,7 +364,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2E80A3B186391DF868F32539 /* [CP] Check Pods Manifest.lock */ = {
+		008B7EAF62408297896DEAC4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -266,7 +382,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A8B10FDF37DCB897939586BA /* [CP] Embed Pods Frameworks */ = {
+		5995D40B22ECFA90A69BDD97 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -277,6 +393,7 @@
 				"${BUILT_PRODUCTS_DIR}/FoldingCell/FoldingCell.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Segmentio/Segmentio.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -284,13 +401,14 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FoldingCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Segmentio.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Logico/Pods-Logico-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D41CA26F369BE7903C28A9CA /* [CP] Copy Pods Resources */ = {
+		AFF6AEEF6C47CF8BD062BA3A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -312,16 +430,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB8E04761F6A4EA600379E1F /* String+Convenience.swift in Sources */,
+				AB8E04771F6A4EA600379E1F /* UIColor+RGB.swift in Sources */,
+				AB8E04781F6A4EA600379E1F /* UIFont+ExampleFonts.swift in Sources */,
+				AB8E04791F6A4EA600379E1F /* UINavigationBar+Flat.swift in Sources */,
 				AB9E85BD1F62742300986ABA /* globalVariables.swift in Sources */,
 				ABBCF66C1F68FAC70044CBD7 /* WebViewController.swift in Sources */,
-				AB95BA771F60E4FA00CCFC9D /* ViewController.swift in Sources */,
 				AB95BA951F60EF9800CCFC9D /* LaunchScreenViewController.swift in Sources */,
+				AB8E046E1F6A4DCF00379E1F /* Hints.swift in Sources */,
+				AB8E04821F6A511900379E1F /* ParentsCategoryViewController.swift in Sources */,
+				AB5496E81F69256700A60345 /* LaunchScreen2ViewController.swift in Sources */,
 				AB20EC0F1F611EFD00A4CCD3 /* DeliveryViewController.swift in Sources */,
+				AB6508191F6A23EB00382CB4 /* DestinationPopupView.swift in Sources */,
+				AB8E04681F6A490000379E1F /* PickupScheduleViewController.swift in Sources */,
 				ABBCF66E1F6903520044CBD7 /* myMenuViewController.swift in Sources */,
 				AB95BA751F60E4FA00CCFC9D /* AppDelegate.swift in Sources */,
 				AB20EC111F611F1C00A4CCD3 /* DestinationViewController.swift in Sources */,
+				AB8E04861F6A967800379E1F /* DeliveryPopupView.swift in Sources */,
+				AB8E046A1F6A4D5700379E1F /* SegmentioBuilder.swift in Sources */,
+				AB8E046D1F6A4DCF00379E1F /* ColorPalette.swift in Sources */,
+				AB8E04641F6A3E7C00379E1F /* CategoryViewController.swift in Sources */,
+				AB5496E61F69255000A60345 /* LaunchScreen1ViewController.swift in Sources */,
 				ABBCF66A1F6771770044CBD7 /* InquiryViewController.swift in Sources */,
+				AB8E04881F6AD69F00379E1F /* HomeDeliveryViewController.swift in Sources */,
 				AB103C081F62CC2000AE8DB0 /* JoinViewController.swift in Sources */,
+				AB6508171F6A19F700382CB4 /* WeightPopupView.swift in Sources */,
+				AB8E04661F6A453C00379E1F /* MirrorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,9 +594,10 @@
 		};
 		AB95BA8F1F60E4FA00CCFC9D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0A47FFDE384729B847AF0800 /* Pods-Logico.debug.xcconfig */;
+			baseConfigurationReference = 7FDD19C6F92DE3C526B7E14F /* Pods-Logico.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = S66VGVB29H;
 				INFOPLIST_FILE = Logico/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -474,9 +609,10 @@
 		};
 		AB95BA901F60E4FA00CCFC9D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 520AB886379EE1C88819AE7F /* Pods-Logico.release.xcconfig */;
+			baseConfigurationReference = 406BA3033929EC2766E43831 /* Pods-Logico.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = S66VGVB29H;
 				INFOPLIST_FILE = Logico/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

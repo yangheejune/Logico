@@ -19,6 +19,11 @@ class DestinationViewController: UIViewController, UIPickerViewDelegate, UIPicke
     var CompanyNumber = 0
     
     var pickerDataSource = ["우체국EMS", "FedEx", "UPS", "DHL"]
+    
+    class func create() -> UIViewController {
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        return mainStoryboard.instantiateViewController(withIdentifier: String(describing: self)) as! DestinationViewController
+    }
 
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

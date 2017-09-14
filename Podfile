@@ -6,4 +6,5 @@ target 'Logico' do
     pod 'Alamofire', '~> 4.4'
     pod 'RealmSwift'
     pod 'FoldingCell', '~> 2.0.3' 
+    pod 'Segmentio', '~> 2.1'
 end
