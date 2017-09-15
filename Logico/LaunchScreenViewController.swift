@@ -11,14 +11,15 @@ import Realm
 import RealmSwift
 
 class cDeliveryItem: Object{
-    dynamic var waybill = ""                      // 운송장번호
-    dynamic var deliveryservicename = 0           // 택배 업체명
-    dynamic var deliveryBegin: Date? = nil        // 택배 배송 시작 시간
-    dynamic var deliveryBeginAddress = ""         // 택배 배송 시작 주소
-    dynamic var deliveryEnd: Date? = nil          // 택배 배송 도착 시간
-    dynamic var deliveryEndAddress = ""           // 택배 배송 도착 주소
-    dynamic var deliveryLocationDate: Date? = nil // 택배 현재 위치 시간
-    dynamic var deliveryLocation = ""             // 택배 현재 위치
+    dynamic var UserID                          = ""
+    dynamic var waybill                         = ""        // 운송장번호
+    dynamic var deliveryservicename             = ""         // 택배 업체명
+    dynamic var deliveryBegin: Date?            = nil       // 택배 배송 시작 시간
+    dynamic var deliveryBeginAddress            = ""        // 택배 배송 시작 주소
+    dynamic var deliveryEnd: Date?              = nil       // 택배 배송 도착 시간
+    dynamic var deliveryEndAddress              = ""        // 택배 배송 도착 주소
+    dynamic var deliveryLocationDate: Date?     = nil       // 택배 현재 위치 시간
+    dynamic var deliveryLocation                = ""        // 택배 현재 위치
 }
 
 class cDeliveryServiceInfo: Object {
@@ -26,18 +27,39 @@ class cDeliveryServiceInfo: Object {
     dynamic var deliveryType        = Int()             // 택배 종류 (1:서류, 2:비서류)
     dynamic var deliveryCountry     = Int()             // 보낼 나라 ex) 62: 대한민국 55:프랑스
     dynamic var deliveryWeight      = Double()          // 택배 중량 (최대 30kg까지)
+    dynamic var deliveryCity        = String()          // 택배 보낼 도시
+    dynamic var deliveryZipcode     = String()          // 우편번호
     dynamic var deliveryCost        = Int()             // 택배 가격
+    dynamic var deliveryDiscount    = Int()             // 할인율
     dynamic var deliveryRequestTime = String()          // 배송 소요 기간
 }
 
-class cMyMenu: Object {
-    dynamic var deliveryServiceName = String()          // 택배 업체명
+class cMyBoxItemInfo: Object {
+    dynamic var UserID              = String()          // 나만의 택배 정보를 확인할 아이디
     dynamic var deliveryType        = Int()             // 택배 종류 (1:서류, 2:비서류)
-    dynamic var deliveryCountry     = Int()             // 보낼 나라 ex) 62: 대한민국 55:프랑스
-    dynamic var deliveryWeight      = Double()          // 택배 중량 (최대 30kg까지)
-    dynamic var deliveryCost        = Int()             // 택배 가격
-    dynamic var deliveryRequestTime = String()          // 배송 소요 기간
+    dynamic var destinationCountry     = Int()          // 도착지 나라 ex) 62: 대한민국 55:프랑스
+    dynamic var destinationWeight      = Double()       // 중량 (최대 30kg까지)
+    dynamic var destinationHorizontal  = Double()       // 가로 길이
+    dynamic var destinationVertical    = Double()       // 세로 길이
+    dynamic var destinationHeight      = Double()       // 높이
+    dynamic var destinationCity        = String()       // 도착 도시
+    dynamic var destinationZipcode     = String()       // 도착 우편번호
+    dynamic var destinationCount       = Int()          // 물품 갯수
 }
+
+class cMyBoxUserInfo: Object {
+    dynamic var UserID              = String()          // 나만의 택배 정보를 확인할 아이디
+    dynamic var UserAddressName     = String()          // 사용자 만의 발송명 지정
+    dynamic var deliveryCountry     = Int()             // 발송 나라 ex) 62: 대한민국 55:프랑스
+    dynamic var deliveryCity        = String()          // 발송 도시
+    dynamic var deliveryZipcode     = String()          // 발송 우편번호
+}
+
+class cMyPage: Object {
+    dynamic var UserID              = String()
+    dynamic var UserEmail           = String()
+}
+
 
 class LaunchScreenViewController: UIViewController {
     
@@ -56,12 +78,7 @@ class LaunchScreenViewController: UIViewController {
             realm.deleteAll()
         }
         
-        
         perform(#selector(LaunchScreenViewController.ShowNavController), with: nil, afterDelay: 5)
-        
-        //UIView.animate(withDuration: 5.0, animations: {
-            //self.launchImage.frame.origin.y = 100
-        //}, completion: nil)
         
         UIView.animate(withDuration: 5.0, animations: ({
             
@@ -78,88 +95,50 @@ class LaunchScreenViewController: UIViewController {
         }))
 
 
-        // 중국
-        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: (0.3), deliveryCost: 20000, deliveryRequestTime: "2~4")
-        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: (0.5), deliveryCost: 23500, deliveryRequestTime: "2~4")
-        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: (0.75), deliveryCost: 25000, deliveryRequestTime: "2~4")
-        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: (1.0), deliveryCost: 26500, deliveryRequestTime: "2~4")
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 1.25, deliveryCost: 28000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 1.5, deliveryCost: 30000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 1.75, deliveryCost: 31500)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 2, deliveryCost: 32500)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 2.5, deliveryCost: 34000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 3, deliveryCost: 35500)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 3.5, deliveryCost: 37000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 4, deliveryCost: 39000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 4.5, deliveryCost: 40500)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 5, deliveryCost: 42000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 5.5, deliveryCost: 44000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 6, deliveryCost: 45500)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 6.5, deliveryCost: 47000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 7, deliveryCost: 48500)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 7.5, deliveryCost: 50500)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 8, deliveryCost: 52000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 8.5, deliveryCost: 53500)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 9, deliveryCost: 55500)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 9.5, deliveryCost: 57000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 10, deliveryCost: 58500)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 10.5, deliveryCost: 60000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 11, deliveryCost: 62000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 11.5, deliveryCost: 63500)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 12, deliveryCost: 65000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 12.5, deliveryCost: 67000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 13, deliveryCost: 68500)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 13.5, deliveryCost: 70000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 14, deliveryCost: 72000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 14.5, deliveryCost: 73500)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 15, deliveryCost: 75000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 15.5, deliveryCost: 76500)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 16, deliveryCost: 78500)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 16.5, deliveryCost: 80500)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 17, deliveryCost: 82500)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 17.5, deliveryCost: 84500)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 18, deliveryCost: 86500)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 18.5, deliveryCost: 88500)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 19, deliveryCost: 90000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 19.5, deliveryCost: 92000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 20, deliveryCost: 94000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 20.5, deliveryCost: 96000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 21, deliveryCost: 98000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 21.5, deliveryCost: 100000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 22, deliveryCost: 102000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 22.5, deliveryCost: 103500)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 23, deliveryCost: 105500)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 23.5, deliveryCost: 107500)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 24, deliveryCost: 109500)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 24.5, deliveryCost: 111500)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 25, deliveryCost: 113500)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 25.5, deliveryCost: 115500)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 26, deliveryCost: 117000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 26.5, deliveryCost: 119000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 27, deliveryCost: 121000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 27.5, deliveryCost: 123000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 28, deliveryCost: 125000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 28.5, deliveryCost: 127000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 29, deliveryCost: 129000)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 29.5, deliveryCost: 130500)
-//        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: 30, deliveryCost: 132500)
+        // 중국 할인 특가
+        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: (0.3), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 20000, deliveryDiscount: 10, deliveryRequestTime: "2~4")
         
-        addDeliveryItem(waybill: "1234", deliveryservicename: 1, deliveryBegin: formatter.date(from: "2017-08-26")!, deliveryBeginAddress: "대전시 유성구 대덕대로 512번길 20, 2층" , deliveryEnd: formatter.date(from: "2017-09-06")!, deliveryEndAddress: "미국 캘리포니아 주 쿠퍼티노", deliveryLocationDate: formatter.date(from: "2017-08-27")!, deliveryLocation: "대한민국 인천국제공항")
+        addDeliveryServiceInfo(deliveryServiceName: "FedEx", deliveryType: 0, deliveryCountry: 1, deliveryWeight: (0.3), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 18000, deliveryDiscount: 15, deliveryRequestTime: "2~4")
+        
+        addDeliveryServiceInfo(deliveryServiceName: "UPS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: (0.3), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 18540, deliveryDiscount: 12, deliveryRequestTime: "2~4")
+        
+        addDeliveryServiceInfo(deliveryServiceName: "DHL", deliveryType: 0, deliveryCountry: 1, deliveryWeight: (0.3), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 16000, deliveryDiscount: 20, deliveryRequestTime: "2~4")
+
+        // 운송장 번호 입력
+        addDeliveryItem(UserID: "Logico", waybill: "1234", deliveryservicename: "FedEx", deliveryBegin: formatter.date(from: "2017-08-26")!, deliveryBeginAddress: "대전시 유성구 대덕대로 512번길 20, 2층" , deliveryEnd: formatter.date(from: "2017-09-06")!, deliveryEndAddress: "미국 캘리포니아 주 쿠퍼티노", deliveryLocationDate: formatter.date(from: "2017-08-27")!, deliveryLocation: "대한민국 인천국제공항")
+        
+        addDeliveryItem(UserID: "Logico", waybill: "4321", deliveryservicename: "EMS", deliveryBegin: formatter.date(from: "2017-09-18")!, deliveryBeginAddress: "대전시 유성구 대덕대로 512번길 20, 2층" , deliveryEnd: formatter.date(from: "2017-09-28")!, deliveryEndAddress: "중국 베이징", deliveryLocationDate: formatter.date(from: "2017-09-20")!, deliveryLocation: "대한민국 인천 국제공항")
+        
+        // 나만의 배송 정보
+        addMyBoxItemInfo(UserID: "Logico", deliveryType: 1, destinationCountry: 1, destinationWeight: (5.0), destinationHorizontal: 10, destinationVertical: 10, destinationHeight: 3, destinationCity: "베이징", destinationZipcode: "9879", destinationCount: 10)
+        
+        addMyBoxItemInfo(UserID: "Logico", deliveryType: 0, destinationCountry: 2, destinationWeight: (2.0), destinationHorizontal: 10, destinationVertical: 10, destinationHeight: 1, destinationCity: "LA", destinationZipcode: "1232", destinationCount: 10)
+        
+        addMyBoxItemInfo(UserID: "Logico", deliveryType: 0, destinationCountry: 3, destinationWeight: (0.5), destinationHorizontal: 2, destinationVertical: 2, destinationHeight: 1, destinationCity: "몰라", destinationZipcode: "5232", destinationCount: 10)
+        
+        addMyBoxItemInfo(UserID: "Logico", deliveryType: 1, destinationCountry: 4, destinationWeight: (10.0), destinationHorizontal: 30, destinationVertical: 30, destinationHeight: 20, destinationCity: "시드니", destinationZipcode: "21434", destinationCount: 5)
+        
+        // 나만의 출발지 정보
+        addMyBoxUserInfo(UserID: "Logico", UserAddressName: "우리집", deliveryCountry: 62, deliveryCity: "경기도 광주시", deliveryZipcode: "12879")
+        addMyBoxUserInfo(UserID: "Logico", UserAddressName: "직장", deliveryCountry: 62, deliveryCity: "대전시 유성구", deliveryZipcode: "122392")
+        
+        // 나의 페이지 정보
+        addMyPage(UserID: "Logico", UserEmail: "Logico@Logico.co.kr")
         
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func ShowNavController() {
         self.performSegue(withIdentifier: "LaunchScreen2", sender: self)
     }
     
-    func addDeliveryItem(waybill: String, deliveryservicename: Int, deliveryBegin: Date, deliveryBeginAddress: String, deliveryEnd: Date, deliveryEndAddress: String, deliveryLocationDate: Date, deliveryLocation: String) {
+    func addDeliveryItem(UserID: String, waybill: String, deliveryservicename: String, deliveryBegin: Date, deliveryBeginAddress: String, deliveryEnd: Date, deliveryEndAddress: String, deliveryLocationDate: Date, deliveryLocation: String) {
         let realmDeliveryItem = cDeliveryItem()
         
+        realmDeliveryItem.UserID = UserID
         realmDeliveryItem.waybill = waybill
         realmDeliveryItem.deliveryservicename = deliveryservicename
         realmDeliveryItem.deliveryBegin = deliveryBegin
@@ -175,27 +154,83 @@ class LaunchScreenViewController: UIViewController {
             realm.add(realmDeliveryItem)
         }
         
-        let deliveryitem = realm.objects(cDeliveryItem.self)
+        //let deliveryitem = realm.objects(cDeliveryItem.self)
         
-        print(deliveryitem)
-        print("Delivery Item success")
+        //print(deliveryitem)
+        print("addDeliveryItem success")
     }
     
-    func addDeliveryServiceInfo(deliveryServiceName: String, deliveryType: Int, deliveryCountry: Int, deliveryWeight: Double, deliveryCost: Int, deliveryRequestTime: String) {
+    func addDeliveryServiceInfo(deliveryServiceName: String, deliveryType: Int, deliveryCountry: Int, deliveryWeight: Double, deliveryCity: String, deliveryZipcode: String, deliveryCost: Int, deliveryDiscount: Int, deliveryRequestTime: String) {
         let realmDeliveryServiceInfo = cDeliveryServiceInfo()
         
         realmDeliveryServiceInfo.deliveryServiceName = deliveryServiceName
         realmDeliveryServiceInfo.deliveryType = deliveryType
         realmDeliveryServiceInfo.deliveryCountry = deliveryCountry
         realmDeliveryServiceInfo.deliveryWeight = deliveryWeight
+        realmDeliveryServiceInfo.deliveryCity = deliveryCity
+        realmDeliveryServiceInfo.deliveryZipcode = deliveryZipcode
         realmDeliveryServiceInfo.deliveryCost = deliveryCost
+        realmDeliveryServiceInfo.deliveryDiscount = deliveryDiscount
         realmDeliveryServiceInfo.deliveryRequestTime = deliveryRequestTime
         
         try! realm.write {
             realm.add(realmDeliveryServiceInfo)
         }
         
-        print("Service Info success")
+        print("addDeliveryServiceInfo success")
     }
+
+    func addMyBoxItemInfo(UserID: String, deliveryType: Int, destinationCountry: Int, destinationWeight: Double, destinationHorizontal: Double, destinationVertical: Double, destinationHeight: Double, destinationCity: String, destinationZipcode: String, destinationCount: Int) {
+        let realmMyBoxItemInfo = cMyBoxItemInfo()
+        
+        realmMyBoxItemInfo.UserID = UserID
+        realmMyBoxItemInfo.deliveryType = deliveryType
+        realmMyBoxItemInfo.destinationCountry = destinationCountry
+        realmMyBoxItemInfo.destinationWeight = destinationWeight
+        realmMyBoxItemInfo.destinationHorizontal = destinationHorizontal
+        realmMyBoxItemInfo.destinationVertical = destinationVertical
+        realmMyBoxItemInfo.destinationHeight = destinationHeight
+        realmMyBoxItemInfo.destinationCity = destinationCity
+        realmMyBoxItemInfo.destinationZipcode = destinationZipcode
+        realmMyBoxItemInfo.destinationCount = destinationCount
+        
+        
+        try! realm.write {
+            realm.add(realmMyBoxItemInfo)
+        }
+        
+        print("addMyBoxItemInfo success")
+    }
+    
+    func addMyBoxUserInfo(UserID: String, UserAddressName: String, deliveryCountry: Int, deliveryCity: String, deliveryZipcode: String) {
+        let realmMyBoxUserInfo = cMyBoxUserInfo()
+        
+        realmMyBoxUserInfo.UserID = UserID
+        realmMyBoxUserInfo.UserAddressName = UserAddressName
+        realmMyBoxUserInfo.deliveryCountry = deliveryCountry
+        realmMyBoxUserInfo.deliveryCity = deliveryCity
+        realmMyBoxUserInfo.deliveryZipcode = deliveryZipcode
+        
+        try! realm.write {
+            realm.add(realmMyBoxUserInfo)
+        }
+        
+        print("addMyBoxUserInfo success")
+    }
+
+    func addMyPage(UserID: String, UserEmail: String) {
+        let realmMyPage = cMyPage()
+        
+        realmMyPage.UserID = UserID
+        realmMyPage.UserEmail = UserEmail
+       
+        
+        try! realm.write {
+            realm.add(realmMyPage)
+        }
+        
+        print("addMyPage success")
+    }
+
 
 }

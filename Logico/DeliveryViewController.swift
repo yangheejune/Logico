@@ -37,6 +37,11 @@ class DeliveryViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var WeightPickerNumber = 0
     var DeliveryItemCount = 0
     
+    
+    // myBox에서 넘어오는 데이터
+    var MyBoxItemInfo = cMyBoxItemInfo()
+    var MyBoxUserInfo = cMyBoxUserInfo()
+    
     var DeliveryTypePickerDataSource = ["서류", "비서류"]
     var DeliveryPickerDataSource = ["대한민국"]
     var DestinationPickerDataSource = ["미국", "중국", "일본", "호주"]

@@ -111,7 +111,7 @@ class InquiryViewController: UIViewController, UITableViewDataSource, UITableVie
         viewController.DestinationServiceType = gDeliveryitem[indexPath.row].deliveryServiceName
         
         // 나의 메뉴에 저장
-        addDeliveryServiceInfo(deliveryServiceName: gDeliveryitem[indexPath.row].deliveryServiceName, deliveryType: gDeliveryitem[indexPath.row].deliveryType, deliveryCountry: gDeliveryitem[indexPath.row].deliveryCountry, deliveryWeight: gDeliveryitem[indexPath.row].deliveryWeight, deliveryCost: gDeliveryitem[indexPath.row].deliveryCost, deliveryRequestTime: gDeliveryitem[indexPath.row].deliveryRequestTime)
+        //addDeliveryServiceInfo(deliveryServiceName: gDeliveryitem[indexPath.row].deliveryServiceName, deliveryType: gDeliveryitem[indexPath.row].deliveryType, deliveryCountry: gDeliveryitem[indexPath.row].deliveryCountry, deliveryWeight: gDeliveryitem[indexPath.row].deliveryWeight, deliveryCost: gDeliveryitem[indexPath.row].deliveryCost, deliveryRequestTime: gDeliveryitem[indexPath.row].deliveryRequestTime)
     }
     
     func WeightConvertor() {
@@ -250,22 +250,22 @@ class InquiryViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    func addDeliveryServiceInfo(deliveryServiceName: String, deliveryType: Int, deliveryCountry: Int, deliveryWeight: Double, deliveryCost: Int, deliveryRequestTime: String) {
-        let realmDeliveryServiceInfo = cMyMenu()
-        
-        realmDeliveryServiceInfo.deliveryServiceName = deliveryServiceName
-        realmDeliveryServiceInfo.deliveryType = deliveryType
-        realmDeliveryServiceInfo.deliveryCountry = deliveryCountry
-        realmDeliveryServiceInfo.deliveryWeight = deliveryWeight
-        realmDeliveryServiceInfo.deliveryCost = deliveryCost
-        realmDeliveryServiceInfo.deliveryRequestTime = deliveryRequestTime
-        
-        try! realm.write {
-            realm.add(realmDeliveryServiceInfo)
-        }
-        
-        print("Service Info success")
-    }
+//    func addDeliveryServiceInfo(deliveryServiceName: String, deliveryType: Int, deliveryCountry: Int, deliveryWeight: Double, deliveryCost: Int, deliveryRequestTime: String) {
+//        let realmDeliveryServiceInfo = cMyMenu()
+//        
+//        realmDeliveryServiceInfo.deliveryServiceName = deliveryServiceName
+//        realmDeliveryServiceInfo.deliveryType = deliveryType
+//        realmDeliveryServiceInfo.deliveryCountry = deliveryCountry
+//        realmDeliveryServiceInfo.deliveryWeight = deliveryWeight
+//        realmDeliveryServiceInfo.deliveryCost = deliveryCost
+//        realmDeliveryServiceInfo.deliveryRequestTime = deliveryRequestTime
+//        
+//        try! realm.write {
+//            realm.add(realmDeliveryServiceInfo)
+//        }
+//        
+//        print("Service Info success")
+//    }
     
     func getRealmDate() -> [cDeliveryServiceInfo] {
         var rtTotalTask = [cDeliveryServiceInfo]()

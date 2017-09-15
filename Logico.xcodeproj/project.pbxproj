@@ -39,7 +39,7 @@
 		AB9E85BD1F62742300986ABA /* globalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9E85BC1F62742300986ABA /* globalVariables.swift */; };
 		ABBCF66A1F6771770044CBD7 /* InquiryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBCF6691F6771770044CBD7 /* InquiryViewController.swift */; };
 		ABBCF66C1F68FAC70044CBD7 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBCF66B1F68FAC70044CBD7 /* WebViewController.swift */; };
-		ABBCF66E1F6903520044CBD7 /* myMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBCF66D1F6903520044CBD7 /* myMenuViewController.swift */; };
+		ABBCF66E1F6903520044CBD7 /* myBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBCF66D1F6903520044CBD7 /* myBoxViewController.swift */; };
 		BBE1EF544D0B11D20592C9DF /* Pods_Logico.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3D7900846DA5F288A8CC77 /* Pods_Logico.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,7 +92,7 @@
 		AB9E85BC1F62742300986ABA /* globalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = globalVariables.swift; sourceTree = "<group>"; };
 		ABBCF6691F6771770044CBD7 /* InquiryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InquiryViewController.swift; sourceTree = "<group>"; };
 		ABBCF66B1F68FAC70044CBD7 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
-		ABBCF66D1F6903520044CBD7 /* myMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myMenuViewController.swift; sourceTree = "<group>"; };
+		ABBCF66D1F6903520044CBD7 /* myBoxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myBoxViewController.swift; sourceTree = "<group>"; };
 		CE3D7900846DA5F288A8CC77 /* Pods_Logico.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Logico.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -168,7 +168,7 @@
 				AB20EC0E1F611EFD00A4CCD3 /* DeliveryViewController.swift */,
 				ABBCF6691F6771770044CBD7 /* InquiryViewController.swift */,
 				ABBCF66B1F68FAC70044CBD7 /* WebViewController.swift */,
-				ABBCF66D1F6903520044CBD7 /* myMenuViewController.swift */,
+				ABBCF66D1F6903520044CBD7 /* myBoxViewController.swift */,
 				AB8E04671F6A490000379E1F /* PickupScheduleViewController.swift */,
 				AB8E04811F6A511900379E1F /* ParentsCategoryViewController.swift */,
 				AB8E04871F6AD69F00379E1F /* HomeDeliveryViewController.swift */,
@@ -443,7 +443,7 @@
 				AB20EC0F1F611EFD00A4CCD3 /* DeliveryViewController.swift in Sources */,
 				AB6508191F6A23EB00382CB4 /* DestinationPopupView.swift in Sources */,
 				AB8E04681F6A490000379E1F /* PickupScheduleViewController.swift in Sources */,
-				ABBCF66E1F6903520044CBD7 /* myMenuViewController.swift in Sources */,
+				ABBCF66E1F6903520044CBD7 /* myBoxViewController.swift in Sources */,
 				AB95BA751F60E4FA00CCFC9D /* AppDelegate.swift in Sources */,
 				AB20EC111F611F1C00A4CCD3 /* DestinationViewController.swift in Sources */,
 				AB8E04861F6A967800379E1F /* DeliveryPopupView.swift in Sources */,

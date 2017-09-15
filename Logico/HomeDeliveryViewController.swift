@@ -30,7 +30,7 @@ class HomeDeliveryViewController: UIViewController {
 
     @IBAction func MyDeliveryAction(_ sender: Any) {
         let storyboard: UIStoryboard = self.storyboard!
-        let nextView = storyboard.instantiateViewController(withIdentifier: "myMenuViewController")
+        let nextView = storyboard.instantiateViewController(withIdentifier: "myBoxViewController")
         present(nextView, animated: true, completion: nil)
     }
     /*
