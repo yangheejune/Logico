@@ -10,32 +10,30 @@ import UIKit
 import Realm
 import RealmSwift
 
-class myPageItemInfoTableViewCell: UITableViewCell {
-    @IBOutlet weak var ItemType: UILabel!
+class mypageBoxInofomationCollectionCell: UICollectionViewCell {
     @IBOutlet weak var ItemDestination: UILabel!
-    @IBOutlet weak var ItemDestinationCity: UILabel!
-    @IBOutlet weak var ItemDestinationZipcode: UILabel!
-    @IBOutlet weak var ItemCount: UILabel!
-    @IBOutlet weak var ItemWeight: UILabel!
-    @IBOutlet weak var ItemHorizontal: UILabel!
-    @IBOutlet weak var ItemVertical: UILabel!
-    @IBOutlet weak var ItemHeight: UILabel!
+    @IBOutlet weak var ItemName: UILabel!
 }
 
-class myPageUserInfoTableViewCell: UITableViewCell {
+class mypageUserInfomationCollectionCell: UICollectionViewCell {
+    @IBOutlet weak var UserTypeImage: UIImageView!
     @IBOutlet weak var UserAddressName: UILabel!
     @IBOutlet weak var UserDelivery: UILabel!
     @IBOutlet weak var UserDeliveryCity: UILabel!
     @IBOutlet weak var UserDeliveryZipcode: UILabel!
 }
-
-class myPageViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class myPageViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    @IBOutlet weak var myPageItemInfoTableView: UITableView!
-    @IBOutlet weak var myPageUserInfoTableView: UITableView!
+    @IBOutlet weak var BoxInofomationCollection: UICollectionView!
+    
+    @IBOutlet weak var UserInfomationCollection: UICollectionView!
     
     @IBOutlet weak var UserName: UILabel!
     @IBOutlet weak var UserMail: UILabel!
+    
+    // 다음 뷰로 이동할 데이터를 저장할 변수
+    var deliveryItem = gMyBoxItemInfo.init()
+    var deliveryUser = gMyBoxUserInfo.init()
     
     
     let realm = try! Realm()
@@ -49,11 +47,15 @@ class myPageViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.navigationController?.navigationBar.barTintColor = ColorPalette.topColor
         
         self.tabBarController?.tabBar.barTintColor = ColorPalette.topColor
+        
+        let image = UIImage(named: "DeliveryBox")
+        self.navigationItem.titleView = UIImageView(image: image)
 
-        myPageItemInfoTableView.delegate = self
-        myPageItemInfoTableView.dataSource = self
-        myPageUserInfoTableView.delegate = self
-        myPageUserInfoTableView.dataSource = self
+        BoxInofomationCollection.delegate = self
+        BoxInofomationCollection.dataSource = self
+        
+        UserInfomationCollection.delegate = self
+        UserInfomationCollection.dataSource = self
         
         gDeliveryItemInfo = getDeliveryItemInfo(UserID: "Logico")
         
@@ -68,27 +70,34 @@ class myPageViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if tableView == myPageItemInfoTableView{
+  
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if collectionView == BoxInofomationCollection {
             return gDeliveryItemInfo.count
         } else {
             return gDeliberyUserInfo.count
         }
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == myPageItemInfoTableView {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageItemInfo", for: indexPath) as! myPageItemInfoTableViewCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        if collectionView == BoxInofomationCollection {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mypageBoxInfomationColl", for: indexPath) as! mypageBoxInofomationCollectionCell
+            
+            cell.selectedBackgroundView?.backgroundColor = ColorPalette.topColor
             
             if gDeliveryItemInfo.isEmpty {
                 return cell
             }
             
             if gDeliveryItemInfo[indexPath.row].deliveryType == 0 {
-                cell.ItemType.text = "서류"
+                let bgImage = UIImageView();
+                bgImage.image = UIImage(named: "PostBackground")
+                cell.backgroundView = bgImage
             } else {
-                cell.ItemType.text = "비서류"
+                let bgImage = UIImageView();
+                bgImage.image = UIImage(named: "BoxBackground")
+                cell.backgroundView = bgImage
+                
             }
             
             switch gDeliveryItemInfo[indexPath.row].destinationCountry {
@@ -106,17 +115,12 @@ class myPageViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 cell.ItemDestination.text = ""
             }
             
-            cell.ItemDestinationCity.text = gDeliveryItemInfo[indexPath.row].destinationCity
-            cell.ItemDestinationZipcode.text = gDeliveryItemInfo[indexPath.row].destinationZipcode
-            cell.ItemCount.text = String(gDeliveryItemInfo[indexPath.row].destinationCount)
-            cell.ItemWeight.text = String(gDeliveryItemInfo[indexPath.row].destinationWeight)
-            cell.ItemHorizontal.text = String(gDeliveryItemInfo[indexPath.row].destinationHorizontal)
-            cell.ItemVertical.text = String(gDeliveryItemInfo[indexPath.row].destinationVertical)
-            cell.ItemHeight.text = String(gDeliveryItemInfo[indexPath.row].destinationHeight)
+            cell.ItemName.text = gDeliveryItemInfo[indexPath.row].BoxItemName
             
             return cell
+            
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MyPageUserInfo", for: indexPath) as! myPageUserInfoTableViewCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mypageUserInfomationColl", for: indexPath) as! mypageUserInfomationCollectionCell
             
             if gDeliberyUserInfo.isEmpty {
                 return cell
@@ -124,6 +128,13 @@ class myPageViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             cell.UserAddressName.text = gDeliberyUserInfo[indexPath.row].UserAddressName
             
+            switch gDeliberyUserInfo[indexPath.row].UserType {
+            case 1:
+                cell.UserTypeImage.image = UIImage(named: "UserHome")
+            case 2:
+                cell.UserTypeImage.image = UIImage(named: "UserCompany")
+            default: break
+            }
             switch gDeliberyUserInfo[indexPath.row].deliveryCountry {
             case 0:
                 cell.UserDelivery.text = "미국"
@@ -146,6 +157,77 @@ class myPageViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if collectionView == BoxInofomationCollection {
+            let cell = collectionView.cellForItem(at: indexPath)
+            
+            cell?.layer.borderWidth = 2.0
+            cell?.layer.borderColor = UIColor.gray.cgColor
+            
+            if gDeliveryItemInfo.isEmpty {
+                return
+            }
+            
+            deliveryItem.deliveryType = gDeliveryItemInfo[indexPath.row].deliveryType
+            
+            deliveryItem.destinationCountry = gDeliveryItemInfo[indexPath.row].destinationCountry
+            
+            deliveryItem.destinationCity = gDeliveryItemInfo[indexPath.row].destinationCity
+            
+            deliveryItem.destinationZipcode = gDeliveryItemInfo[indexPath.row].destinationZipcode
+            
+            deliveryItem.destinationCount = gDeliveryItemInfo[indexPath.row].destinationCount
+            
+            deliveryItem.destinationWeight = gDeliveryItemInfo[indexPath.row].destinationWeight
+            
+            deliveryItem.destinationHorizontal = gDeliveryItemInfo[indexPath.row].destinationHorizontal
+            
+            deliveryItem.destinationVertical = gDeliveryItemInfo[indexPath.row].destinationVertical
+            
+            deliveryItem.destinationHeight = gDeliveryItemInfo[indexPath.row].destinationHeight
+            
+            //print ("deliverItem  = \(deliveryItem)")
+            
+            
+        } else {
+            let cell = collectionView.cellForItem(at: indexPath)
+            
+            cell?.layer.borderWidth = 2.0
+            cell?.layer.borderColor = UIColor.gray.cgColor
+            
+            if gDeliberyUserInfo.isEmpty {
+                return
+            }
+            
+            deliveryUser.UserAddressName = gDeliberyUserInfo[indexPath.row].UserAddressName
+            
+            deliveryUser.deliveryCountry = gDeliberyUserInfo[indexPath.row].deliveryCountry
+            
+            deliveryUser.deliveryCity = gDeliberyUserInfo[indexPath.row].deliveryCity
+            
+            deliveryUser.deliveryZipcode = gDeliberyUserInfo[indexPath.row].deliveryZipcode
+            
+            
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        if collectionView == BoxInofomationCollection {
+            let cell = collectionView.cellForItem(at: indexPath)
+            
+            cell?.layer.borderWidth = 1.0
+            cell?.layer.borderColor = UIColor.white.cgColor
+            
+        } else {
+            let cell = collectionView.cellForItem(at: indexPath)
+            
+            cell?.layer.borderWidth = 1.0
+            cell?.layer.borderColor = UIColor.white.cgColor
+            
+        }
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "MyPageItemInfo"

@@ -98,6 +98,10 @@ class myBoxJoinViewController: UIViewController, UIPickerViewDelegate, UIPickerV
         default:
             DestinationCountry.text = ""
         }
+        DestinationPickerNumber = deliveryItem.destinationCountry
+        WeightPickerNumber = Int(deliveryItem.destinationWeight)
+        DeliveryItemCount = deliveryItem.destinationCount
+        
             
         DestinationCity.text = deliveryItem.destinationCity
         DestinationZipcode.text = deliveryItem.destinationZipcode

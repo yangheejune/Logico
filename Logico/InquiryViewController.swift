@@ -15,7 +15,6 @@ class InquiryTableViewCell: UITableViewCell {
     @IBOutlet fileprivate weak var DerliveryType: UILabel!
     @IBOutlet fileprivate weak var DeliveryTerm: UILabel!
     @IBOutlet fileprivate weak var Cost: UILabel!
-    @IBOutlet fileprivate weak var Discount: UILabel!
 }
 
 class InquiryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -40,7 +39,6 @@ class InquiryViewController: UIViewController, UITableViewDataSource, UITableVie
         WeightConvertor()
         
         print(DeliveryWeight)
-        
        
         gDeliveryitem = getRealmDate()
         
@@ -87,19 +85,13 @@ class InquiryViewController: UIViewController, UITableViewDataSource, UITableVie
         }
         cell.CompanyName.text = gDeliveryitem[indexPath.row].deliveryServiceName
         print("종류 : \(gDeliveryitem[indexPath.row].deliveryType)")
-        if gDeliveryitem[indexPath.row].deliveryType == 0 {
-            cell.DerliveryType.text = "서류"
-        } else {
-            cell.DerliveryType.text = "비서류"
-        }
+        cell.DerliveryType.text = gDeliveryitem[indexPath.row].deliveryServiceType
         
         cell.DeliveryTerm.text = gDeliveryitem[indexPath.row].deliveryRequestTime
         
         let sumCost = gDeliveryitem[indexPath.row].deliveryCost * DeliveryItemCount!
         
         cell.Cost.text = String(sumCost)
-        
-        cell.Discount.text = String(gDeliveryitem[indexPath.row].deliveryDiscount)
         
         return cell
     }

@@ -17,8 +17,10 @@ class HomeDeliveryViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let image = UIImage(named: "DeliveryBox")
+        self.navigationItem.titleView = UIImageView(image: image)
 
-        // Do any additional setup after loading the view.
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -42,6 +44,7 @@ class HomeDeliveryViewController: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+
     /*
     // MARK: - Navigation
 

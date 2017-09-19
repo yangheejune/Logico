@@ -22,7 +22,7 @@ class DestinationViewController: UIViewController, UIPickerViewDelegate, UIPicke
     var CompanyString = ""
     var gDeliveryItem = cDeliveryItem()
     
-    var pickerDataSource = ["우체국EMS", "FedEx", "UPS", "DHL"]
+    var pickerDataSource = ["EMS", "FedEx", "UPS", "DHL"]
     
     class func create() -> UIViewController {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -122,12 +122,14 @@ class DestinationViewController: UIViewController, UIPickerViewDelegate, UIPicke
             self.present(alert, animated: true, completion: nil)
         } else {
             let join=segue.destination as! JoinViewController
-            join.beginData = gDeliveryItem?.deliveryBegin
+            join.beginData = (gDeliveryItem?.deliveryBegin)!
             join.beginAddress = (gDeliveryItem?.deliveryBeginAddress)!
-            join.locationDate = gDeliveryItem?.deliveryLocationDate
+            join.locationDate = (gDeliveryItem?.deliveryLocationDate)!
             join.locationAddress = (gDeliveryItem?.deliveryLocation)!
-            join.endDate = gDeliveryItem?.deliveryEnd
+            join.endDate = (gDeliveryItem?.deliveryEnd)!
             join.endAddress = (gDeliveryItem?.deliveryEndAddress)!
+            join.locationType = (gDeliveryItem?.deliveryLocationType)!
+            
         }
         
         self.view.endEditing(true)

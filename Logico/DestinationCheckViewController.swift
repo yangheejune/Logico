@@ -63,7 +63,7 @@ class DestinationCheckViewController: UIViewController, UITableViewDelegate, UIT
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy'-'MM'-'dd hh:mm:ss"
         
-        cell.DeliveryBegin.text = formatter.string(from: (gDeliveryItem[indexPath.row].deliveryBegin)!)
+        cell.DeliveryBegin.text = gDeliveryItem[indexPath.row].deliveryBegin
         
         return cell
     }
@@ -77,6 +77,7 @@ class DestinationCheckViewController: UIViewController, UITableViewDelegate, UIT
         viewController.locationAddress = gDeliveryItem[indexPath.row].deliveryLocation
         viewController.endDate = gDeliveryItem[indexPath.row].deliveryEnd
         viewController.endAddress = gDeliveryItem[indexPath.row].deliveryEndAddress
+        viewController.locationType = gDeliveryItem[indexPath.row].deliveryLocationType
     }
     
     func getDeliveryItem(UserID: String) -> [cDeliveryItem] {

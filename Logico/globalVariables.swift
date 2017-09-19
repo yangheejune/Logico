@@ -52,6 +52,8 @@ class gMyBoxUserInfo {
     }
 }
 
+var ggdeliveryItem = gMyBoxItemInfo.init()
+
 var DeliveryTypePickerDataSource = ["서류", "비서류"]
 var DeliveryPickerDataSource = ["대한민국"]
 var DestinationPickerDataSource = ["미국", "중국", "일본", "호주"]

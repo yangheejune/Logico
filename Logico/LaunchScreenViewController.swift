@@ -11,20 +11,22 @@ import Realm
 import RealmSwift
 
 class cDeliveryItem: Object{
-    dynamic var UserID                          = ""
-    dynamic var waybill                         = ""        // 운송장번호
-    dynamic var deliveryservicename             = ""         // 택배 업체명
-    dynamic var deliveryBegin: Date?            = nil       // 택배 배송 시작 시간
-    dynamic var deliveryBeginAddress            = ""        // 택배 배송 시작 주소
-    dynamic var deliveryEnd: Date?              = nil       // 택배 배송 도착 시간
-    dynamic var deliveryEndAddress              = ""        // 택배 배송 도착 주소
-    dynamic var deliveryLocationDate: Date?     = nil       // 택배 현재 위치 시간
-    dynamic var deliveryLocation                = ""        // 택배 현재 위치
+    dynamic var UserID                          = String()
+    dynamic var waybill                         = String()        // 운송장번호
+    dynamic var deliveryservicename             = String()        // 택배 업체명
+    dynamic var deliveryBegin                   = String()        // 택배 배송 시작 기간
+    dynamic var deliveryBeginAddress            = String()        // 택배 배송 시작 주소
+    dynamic var deliveryEnd                     = String()        // 택배 배송 도착 기간
+    dynamic var deliveryEndAddress              = String()        // 택배 배송 도착 주소
+    dynamic var deliveryLocationDate            = String()        // 택배 현재 위치 시간
+    dynamic var deliveryLocation                = String()        // 택배 현재 위치
+    dynamic var deliveryLocationType            = Int()           // 현재 위치를  0~11까지 설정
 }
 
 class cDeliveryServiceInfo: Object {
     dynamic var deliveryServiceName = String()          // 택배 업체명
     dynamic var deliveryType        = Int()             // 택배 종류 (1:서류, 2:비서류)
+    dynamic var deliveryServiceType = String()          // 프리미엄 서비스 인지 이런것들을 기록
     dynamic var deliveryCountry     = Int()             // 보낼 나라 ex) 62: 대한민국 55:프랑스
     dynamic var deliveryWeight      = Double()          // 택배 중량 (최대 30kg까지)
     dynamic var deliveryCity        = String()          // 택배 보낼 도시
@@ -36,6 +38,7 @@ class cDeliveryServiceInfo: Object {
 
 class cMyBoxItemInfo: Object {
     dynamic var UserID                  = String()          // 나만의 택배 정보를 확인할 아이디
+    dynamic var BoxItemName             = String()
     dynamic var deliveryType            = Int()             // 택배 종류 (1:서류, 2:비서류)
     dynamic var destinationCountry     = Int()          // 도착지 나라 ex) 62: 대한민국 55:프랑스
     dynamic var destinationWeight      = Double()       // 중량 (최대 30kg까지)
@@ -49,6 +52,7 @@ class cMyBoxItemInfo: Object {
 
 class cMyBoxUserInfo: Object {
     dynamic var UserID              = String()          // 나만의 택배 정보를 확인할 아이디
+    dynamic var UserType            = Int()             // 1이면 우리집 2이면 직장
     dynamic var UserAddressName     = String()          // 사용자 만의 발송명 지정
     dynamic var deliveryCountry     = Int()             // 발송 나라 ex) 62: 대한민국 55:프랑스
     dynamic var deliveryCity        = String()          // 발송 도시
@@ -78,11 +82,11 @@ class LaunchScreenViewController: UIViewController {
             realm.deleteAll()
         }
         
-        perform(#selector(LaunchScreenViewController.ShowNavController), with: nil, afterDelay: 5)
+        perform(#selector(LaunchScreenViewController.ShowNavController), with: nil, afterDelay: 2)
         
-        UIView.animate(withDuration: 5.0, animations: ({
+//        UIView.animate(withDuration: 5.0, animations: ({
             
-            self.launchImage.transform = CGAffineTransform(translationX: 100, y: 100)
+//            self.launchImage.transform = CGAffineTransform(translationX: 100, y: 100)
             // 가로 100, 세로 100 만큼 움직이는 메소드
             
             //self.launchImage.transform = CGAffineTransform(scaleX: 2, y: 2)
@@ -92,35 +96,65 @@ class LaunchScreenViewController: UIViewController {
             // 객체를 회전하는 메소드!
             
             
-        }))
+//        }))
 
 
         // 중국 할인 특가
-        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: (0.3), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 20000, deliveryDiscount: 10, deliveryRequestTime: "2~4")
+        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryServiceType: "EMS", deliveryCountry: 1, deliveryWeight: (0.3), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 20000, deliveryDiscount: 10, deliveryRequestTime: "7~14")
+        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryServiceType: "프리미엄", deliveryCountry: 1, deliveryWeight: (0.3), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 20000, deliveryDiscount: 10, deliveryRequestTime: "2~4")
+        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryServiceType: "국제소포", deliveryCountry: 1, deliveryWeight: (0.3), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 20000, deliveryDiscount: 10, deliveryRequestTime: "20~30")
+        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryServiceType: "국제통상", deliveryCountry: 1, deliveryWeight: (0.3), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 20000, deliveryDiscount: 10, deliveryRequestTime: "20~30")
         
-        addDeliveryServiceInfo(deliveryServiceName: "FedEx", deliveryType: 0, deliveryCountry: 1, deliveryWeight: (0.3), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 18000, deliveryDiscount: 15, deliveryRequestTime: "2~4")
+        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryServiceType: "EMS", deliveryCountry: 1, deliveryWeight: (0.5), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 20000, deliveryDiscount: 10, deliveryRequestTime: "7~14")
+        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryServiceType: "프리미엄", deliveryCountry: 1, deliveryWeight: (0.5), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 20000, deliveryDiscount: 10, deliveryRequestTime: "2~4")
+        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryServiceType: "국제소포", deliveryCountry: 1, deliveryWeight: (0.5), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 20000, deliveryDiscount: 10, deliveryRequestTime: "20~30")
+        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryServiceType: "국제통상", deliveryCountry: 1, deliveryWeight: (0.5), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 20000, deliveryDiscount: 10, deliveryRequestTime: "20~30")
         
-        addDeliveryServiceInfo(deliveryServiceName: "UPS", deliveryType: 0, deliveryCountry: 1, deliveryWeight: (0.3), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 18540, deliveryDiscount: 12, deliveryRequestTime: "2~4")
+        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryServiceType: "EMS", deliveryCountry: 1, deliveryWeight: (0.75), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 20000, deliveryDiscount: 10, deliveryRequestTime: "7~14")
+        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryServiceType: "프리미엄", deliveryCountry: 1, deliveryWeight: (0.75), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 20000, deliveryDiscount: 10, deliveryRequestTime: "2~4")
+        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryServiceType: "국제소포", deliveryCountry: 1, deliveryWeight: (0.75), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 20000, deliveryDiscount: 10, deliveryRequestTime: "20~30")
+        addDeliveryServiceInfo(deliveryServiceName: "EMS", deliveryType: 0, deliveryServiceType: "국제통상", deliveryCountry: 1, deliveryWeight: (0.75), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 20000, deliveryDiscount: 10, deliveryRequestTime: "20~30")
         
-        addDeliveryServiceInfo(deliveryServiceName: "DHL", deliveryType: 0, deliveryCountry: 1, deliveryWeight: (0.3), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 16000, deliveryDiscount: 20, deliveryRequestTime: "2~4")
+        addDeliveryServiceInfo(deliveryServiceName: "FedEx", deliveryType: 0, deliveryServiceType: "특송화물",deliveryCountry: 1, deliveryWeight: (0.3), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 18000, deliveryDiscount: 15, deliveryRequestTime: "2~4")
+        addDeliveryServiceInfo(deliveryServiceName: "FedEx", deliveryType: 0, deliveryServiceType: "이코노미화물",deliveryCountry: 1, deliveryWeight: (0.3), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 18000, deliveryDiscount: 15, deliveryRequestTime: "2~4")
+        
+        addDeliveryServiceInfo(deliveryServiceName: "FedEx", deliveryType: 0, deliveryServiceType: "특송화물",deliveryCountry: 1, deliveryWeight: (0.5), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 18000, deliveryDiscount: 15, deliveryRequestTime: "2~4")
+        addDeliveryServiceInfo(deliveryServiceName: "FedEx", deliveryType: 0, deliveryServiceType: "이코노미화물",deliveryCountry: 1, deliveryWeight: (0.5), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 18000, deliveryDiscount: 15, deliveryRequestTime: "2~4")
+        
+        addDeliveryServiceInfo(deliveryServiceName: "FedEx", deliveryType: 0, deliveryServiceType: "특송화물",deliveryCountry: 1, deliveryWeight: (0.75), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 18000, deliveryDiscount: 15, deliveryRequestTime: "2~4")
+        addDeliveryServiceInfo(deliveryServiceName: "FedEx", deliveryType: 0, deliveryServiceType: "이코노미화물",deliveryCountry: 1, deliveryWeight: (0.75), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 18000, deliveryDiscount: 15, deliveryRequestTime: "2~4")
+        
+        addDeliveryServiceInfo(deliveryServiceName: "UPS", deliveryType: 0, deliveryServiceType: "Worldwide Express Plus", deliveryCountry: 1, deliveryWeight: (0.3), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 20394, deliveryDiscount: 12, deliveryRequestTime: "1~3")
+        addDeliveryServiceInfo(deliveryServiceName: "UPS", deliveryType: 0, deliveryServiceType: "Worldwide Express", deliveryCountry: 1, deliveryWeight: (0.3), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 20394, deliveryDiscount: 12, deliveryRequestTime: "1~3")
+        addDeliveryServiceInfo(deliveryServiceName: "UPS", deliveryType: 0, deliveryServiceType: "Worldwide Express Freight®", deliveryCountry: 1, deliveryWeight: (0.3), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 20394, deliveryDiscount: 12, deliveryRequestTime: "1~3")
+        addDeliveryServiceInfo(deliveryServiceName: "UPS", deliveryType: 0, deliveryServiceType: "Worldwide Express Freight® Midday", deliveryCountry: 1, deliveryWeight: (0.3), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 20394, deliveryDiscount: 12, deliveryRequestTime: "1~3")
+        addDeliveryServiceInfo(deliveryServiceName: "UPS", deliveryType: 0, deliveryServiceType: "Worldwide Express Saver®", deliveryCountry: 1, deliveryWeight: (0.3), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 20394, deliveryDiscount: 12, deliveryRequestTime: "1~3")
+        
+        // DHL
+        addDeliveryServiceInfo(deliveryServiceName: "DHL", deliveryType: 0, deliveryServiceType: "DHL Express 9:00", deliveryCountry: 1, deliveryWeight: (0.3), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 16000, deliveryDiscount: 20, deliveryRequestTime: "2~4")
+        addDeliveryServiceInfo(deliveryServiceName: "DHL", deliveryType: 0, deliveryServiceType: "DHL Express 10:30", deliveryCountry: 1, deliveryWeight: (0.3), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 16000, deliveryDiscount: 20, deliveryRequestTime: "2~4")
+        addDeliveryServiceInfo(deliveryServiceName: "DHL", deliveryType: 0, deliveryServiceType: "DHL Express 12:00", deliveryCountry: 1, deliveryWeight: (0.3), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 16000, deliveryDiscount: 20, deliveryRequestTime: "2~4")
+        addDeliveryServiceInfo(deliveryServiceName: "DHL", deliveryType: 0, deliveryServiceType: "DHL Express Worldwide", deliveryCountry: 1, deliveryWeight: (0.3), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 16000, deliveryDiscount: 20, deliveryRequestTime: "2~4")
+        addDeliveryServiceInfo(deliveryServiceName: "DHL", deliveryType: 0, deliveryServiceType: "DHL Express 12:00 Import", deliveryCountry: 1, deliveryWeight: (0.3), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 16000, deliveryDiscount: 20, deliveryRequestTime: "2~4")
+        addDeliveryServiceInfo(deliveryServiceName: "DHL", deliveryType: 0, deliveryServiceType: "DHL Express Worldwide Import", deliveryCountry: 1, deliveryWeight: (0.3), deliveryCity: "베이징", deliveryZipcode: "9879", deliveryCost: 16000, deliveryDiscount: 20, deliveryRequestTime: "2~4")
 
         // 운송장 번호 입력
-        addDeliveryItem(UserID: "Logico", waybill: "1234", deliveryservicename: "FedEx", deliveryBegin: formatter.date(from: "2017-08-26")!, deliveryBeginAddress: "대전시 유성구 대덕대로 512번길 20, 2층" , deliveryEnd: formatter.date(from: "2017-09-06")!, deliveryEndAddress: "미국 캘리포니아 주 쿠퍼티노", deliveryLocationDate: formatter.date(from: "2017-08-27")!, deliveryLocation: "대한민국 인천국제공항")
+        addDeliveryItem(UserID: "Logico", waybill: "1234", deliveryservicename: "FedEx", deliveryBegin: "2017-08-26", deliveryBeginAddress: "대전시 유성구 대덕대로 512번길 20, 2층" , deliveryEnd: "2017.09.10", deliveryEndAddress: "미국 캘리포니아 주 쿠퍼티노", deliveryLocationDate: "2017-09-19", deliveryLocation: "대한민국 인천국제공항", deliveryLocationType: 1)
         
-        addDeliveryItem(UserID: "Logico", waybill: "4321", deliveryservicename: "EMS", deliveryBegin: formatter.date(from: "2017-09-18")!, deliveryBeginAddress: "대전시 유성구 대덕대로 512번길 20, 2층" , deliveryEnd: formatter.date(from: "2017-09-28")!, deliveryEndAddress: "중국 베이징", deliveryLocationDate: formatter.date(from: "2017-09-20")!, deliveryLocation: "대한민국 인천 국제공항")
-        
+        addDeliveryItem(UserID: "Logico", waybill: "4321", deliveryservicename: "EMS", deliveryBegin: "2017-09-18", deliveryBeginAddress: "대전시 유성구 대덕대로 512번길 20, 2층" , deliveryEnd: "2017.09.16", deliveryEndAddress: "중국 베이징", deliveryLocationDate: "2017-09-20", deliveryLocation: "대전시 우체국", deliveryLocationType: 3)
+    
         // 나만의 배송 정보
-        addMyBoxItemInfo(UserID: "Logico", deliveryType: 1, destinationCountry: 1, destinationWeight: (5.0), destinationHorizontal: 10, destinationVertical: 10, destinationHeight: 3, destinationCity: "베이징", destinationZipcode: "9879", destinationCount: 10)
+        addMyBoxItemInfo(UserID: "Logico", BoxItemName: "다이소 물품", deliveryType: 1, destinationCountry: 1, destinationWeight: (0.3), destinationHorizontal: 10, destinationVertical: 10, destinationHeight: 3, destinationCity: "베이징", destinationZipcode: "9879", destinationCount: 10)
         
-        addMyBoxItemInfo(UserID: "Logico", deliveryType: 0, destinationCountry: 0, destinationWeight: (2.0), destinationHorizontal: 10, destinationVertical: 10, destinationHeight: 1, destinationCity: "LA", destinationZipcode: "1232", destinationCount: 10)
+        addMyBoxItemInfo(UserID: "Logico", BoxItemName: "산적 견적서", deliveryType: 0, destinationCountry: 0, destinationWeight: (2.0), destinationHorizontal: 10, destinationVertical: 10, destinationHeight: 1, destinationCity: "LA", destinationZipcode: "1232", destinationCount: 10)
         
-        addMyBoxItemInfo(UserID: "Logico", deliveryType: 0, destinationCountry: 2, destinationWeight: (0.5), destinationHorizontal: 2, destinationVertical: 2, destinationHeight: 1, destinationCity: "도쿄", destinationZipcode: "5232", destinationCount: 10)
+        addMyBoxItemInfo(UserID: "Logico", BoxItemName: "샤오미 물품", deliveryType: 0, destinationCountry: 2, destinationWeight: (0.5), destinationHorizontal: 2, destinationVertical: 2, destinationHeight: 1, destinationCity: "도쿄", destinationZipcode: "5232", destinationCount: 10)
         
-        addMyBoxItemInfo(UserID: "Logico", deliveryType: 1, destinationCountry: 3, destinationWeight: (10.0), destinationHorizontal: 30, destinationVertical: 30, destinationHeight: 20, destinationCity: "시드니", destinationZipcode: "21434", destinationCount: 5)
+        addMyBoxItemInfo(UserID: "Logico", BoxItemName: "결혼식 청첩장 샘플", deliveryType: 1, destinationCountry: 3, destinationWeight: (10.0), destinationHorizontal: 30, destinationVertical: 30, destinationHeight: 20, destinationCity: "시드니", destinationZipcode: "21434", destinationCount: 5)
         
         // 나만의 출발지 정보
-        addMyBoxUserInfo(UserID: "Logico", UserAddressName: "우리집", deliveryCountry: 62, deliveryCity: "경기도 광주시", deliveryZipcode: "12879")
-        addMyBoxUserInfo(UserID: "Logico", UserAddressName: "직장", deliveryCountry: 62, deliveryCity: "대전시 유성구", deliveryZipcode: "122392")
+        addMyBoxUserInfo(UserID: "Logico", UserType: 1,UserAddressName: "우리집", deliveryCountry: 62, deliveryCity: "경기도 광주시", deliveryZipcode: "12879")
+        addMyBoxUserInfo(UserID: "Logico", UserType: 2, UserAddressName: "직장", deliveryCountry: 62, deliveryCity: "대전시 유성구", deliveryZipcode: "122392")
         
         // 나의 페이지 정보
         addMyPage(UserID: "Logico", UserEmail: "Logico@Logico.co.kr")
@@ -135,7 +169,7 @@ class LaunchScreenViewController: UIViewController {
         self.performSegue(withIdentifier: "LaunchScreen2", sender: self)
     }
     
-    func addDeliveryItem(UserID: String, waybill: String, deliveryservicename: String, deliveryBegin: Date, deliveryBeginAddress: String, deliveryEnd: Date, deliveryEndAddress: String, deliveryLocationDate: Date, deliveryLocation: String) {
+    func addDeliveryItem(UserID: String, waybill: String, deliveryservicename: String, deliveryBegin: String, deliveryBeginAddress: String, deliveryEnd: String, deliveryEndAddress: String, deliveryLocationDate: String, deliveryLocation: String, deliveryLocationType: Int) {
         let realmDeliveryItem = cDeliveryItem()
         
         realmDeliveryItem.UserID = UserID
@@ -147,8 +181,7 @@ class LaunchScreenViewController: UIViewController {
         realmDeliveryItem.deliveryEndAddress = deliveryEndAddress
         realmDeliveryItem.deliveryLocationDate = deliveryLocationDate
         realmDeliveryItem.deliveryLocation = deliveryLocation
- 
-        
+        realmDeliveryItem.deliveryLocationType = deliveryLocationType
         
         try! realm.write {
             realm.add(realmDeliveryItem)
@@ -156,11 +189,12 @@ class LaunchScreenViewController: UIViewController {
         print("addDeliveryItem success")
     }
     
-    func addDeliveryServiceInfo(deliveryServiceName: String, deliveryType: Int, deliveryCountry: Int, deliveryWeight: Double, deliveryCity: String, deliveryZipcode: String, deliveryCost: Int, deliveryDiscount: Int, deliveryRequestTime: String) {
+    func addDeliveryServiceInfo(deliveryServiceName: String, deliveryType: Int, deliveryServiceType: String, deliveryCountry: Int, deliveryWeight: Double, deliveryCity: String, deliveryZipcode: String, deliveryCost: Int, deliveryDiscount: Int, deliveryRequestTime: String) {
         let realmDeliveryServiceInfo = cDeliveryServiceInfo()
         
         realmDeliveryServiceInfo.deliveryServiceName = deliveryServiceName
         realmDeliveryServiceInfo.deliveryType = deliveryType
+        realmDeliveryServiceInfo.deliveryServiceType = deliveryServiceType
         realmDeliveryServiceInfo.deliveryCountry = deliveryCountry
         realmDeliveryServiceInfo.deliveryWeight = deliveryWeight
         realmDeliveryServiceInfo.deliveryCity = deliveryCity
@@ -176,10 +210,12 @@ class LaunchScreenViewController: UIViewController {
         print("addDeliveryServiceInfo success")
     }
 
-    func addMyBoxItemInfo(UserID: String, deliveryType: Int, destinationCountry: Int, destinationWeight: Double, destinationHorizontal: Double, destinationVertical: Double, destinationHeight: Double, destinationCity: String, destinationZipcode: String, destinationCount: Int) {
+    func addMyBoxItemInfo(UserID: String, BoxItemName: String, deliveryType: Int, destinationCountry: Int, destinationWeight: Double, destinationHorizontal: Double, destinationVertical: Double, destinationHeight: Double, destinationCity: String, destinationZipcode: String, destinationCount: Int) {
         let realmMyBoxItemInfo = cMyBoxItemInfo()
         
         realmMyBoxItemInfo.UserID = UserID
+        
+        realmMyBoxItemInfo.BoxItemName = BoxItemName
         realmMyBoxItemInfo.deliveryType = deliveryType
         realmMyBoxItemInfo.destinationCountry = destinationCountry
         realmMyBoxItemInfo.destinationWeight = destinationWeight
@@ -198,10 +234,11 @@ class LaunchScreenViewController: UIViewController {
         print("addMyBoxItemInfo success")
     }
     
-    func addMyBoxUserInfo(UserID: String, UserAddressName: String, deliveryCountry: Int, deliveryCity: String, deliveryZipcode: String) {
+    func addMyBoxUserInfo(UserID: String, UserType: Int, UserAddressName: String, deliveryCountry: Int, deliveryCity: String, deliveryZipcode: String) {
         let realmMyBoxUserInfo = cMyBoxUserInfo()
         
         realmMyBoxUserInfo.UserID = UserID
+        realmMyBoxUserInfo.UserType = UserType
         realmMyBoxUserInfo.UserAddressName = UserAddressName
         realmMyBoxUserInfo.deliveryCountry = deliveryCountry
         realmMyBoxUserInfo.deliveryCity = deliveryCity

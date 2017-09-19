@@ -19,6 +19,9 @@ class ParentsCategoryViewController: UIViewController {
         self.navigationController?.navigationBar.barTintColor = ColorPalette.topColor
         
         self.tabBarController?.tabBar.barTintColor = ColorPalette.topColor
+        
+        let image = UIImage(named: "DeliveryBox")
+        self.navigationItem.titleView = UIImageView(image: image)
         // Do any additional setup after loading the view.
     }
     

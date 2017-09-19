@@ -198,7 +198,6 @@ class DeliveryViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             let alert = UIAlertController(title: "에러", message: "정보를 입력하지 않은 곳이 있습니다. 확인해 주세요.", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
-            //DeliverType.attributedPlaceholder = NSAttributedString(string: "택배 종류를 입력해주세요", attributes: [NSForegroundColorAttributeName: UIColor.red])
         } else {
             inquiry.DeliveryCountry = DestinationPickerNumber
             inquiry.DeliveryWeight = Double(WeightPickerNumber)
