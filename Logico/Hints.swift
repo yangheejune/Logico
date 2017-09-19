@@ -14,8 +14,4 @@ struct Hints {
     static let Destination = [
         "요금 및 기간"
     ]
-    
-    static let PickUp = [
-        "픽업예약"
-    ]
 }

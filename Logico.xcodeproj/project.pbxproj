@@ -11,15 +11,12 @@
 		AB20EC0F1F611EFD00A4CCD3 /* DeliveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB20EC0E1F611EFD00A4CCD3 /* DeliveryViewController.swift */; };
 		AB20EC111F611F1C00A4CCD3 /* DestinationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB20EC101F611F1C00A4CCD3 /* DestinationViewController.swift */; };
 		AB5496E41F69202400A60345 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AB5496E31F69202400A60345 /* Assets.xcassets */; };
-		AB5496E61F69255000A60345 /* LaunchScreen1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5496E51F69255000A60345 /* LaunchScreen1ViewController.swift */; };
-		AB5496E81F69256700A60345 /* LaunchScreen2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5496E71F69256700A60345 /* LaunchScreen2ViewController.swift */; };
 		AB6508151F6A19CB00382CB4 /* DestinationPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB6508141F6A19CB00382CB4 /* DestinationPopupView.xib */; };
 		AB6508171F6A19F700382CB4 /* WeightPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6508161F6A19F700382CB4 /* WeightPopupView.swift */; };
 		AB6508191F6A23EB00382CB4 /* DestinationPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB6508181F6A23EB00382CB4 /* DestinationPopupView.swift */; };
 		AB65081B1F6A264200382CB4 /* WeightPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB65081A1F6A264200382CB4 /* WeightPopupView.xib */; };
 		AB8E04641F6A3E7C00379E1F /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E04631F6A3E7C00379E1F /* CategoryViewController.swift */; };
 		AB8E04661F6A453C00379E1F /* MirrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E04651F6A453C00379E1F /* MirrorViewController.swift */; };
-		AB8E04681F6A490000379E1F /* PickupScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E04671F6A490000379E1F /* PickupScheduleViewController.swift */; };
 		AB8E046A1F6A4D5700379E1F /* SegmentioBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E04691F6A4D5700379E1F /* SegmentioBuilder.swift */; };
 		AB8E046D1F6A4DCF00379E1F /* ColorPalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E046B1F6A4DCF00379E1F /* ColorPalette.swift */; };
 		AB8E046E1F6A4DCF00379E1F /* Hints.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E046C1F6A4DCF00379E1F /* Hints.swift */; };
@@ -31,14 +28,18 @@
 		AB8E04841F6A953700379E1F /* DeliveryPopupView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AB8E04831F6A953700379E1F /* DeliveryPopupView.xib */; };
 		AB8E04861F6A967800379E1F /* DeliveryPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E04851F6A967800379E1F /* DeliveryPopupView.swift */; };
 		AB8E04881F6AD69F00379E1F /* HomeDeliveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8E04871F6AD69F00379E1F /* HomeDeliveryViewController.swift */; };
+		AB8ED8691F70979A008621F4 /* myBoxJoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB8ED8681F70979A008621F4 /* myBoxJoinViewController.swift */; };
 		AB95BA751F60E4FA00CCFC9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB95BA741F60E4FA00CCFC9D /* AppDelegate.swift */; };
 		AB95BA7A1F60E4FA00CCFC9D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB95BA781F60E4FA00CCFC9D /* Main.storyboard */; };
 		AB95BA7F1F60E4FA00CCFC9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AB95BA7D1F60E4FA00CCFC9D /* LaunchScreen.storyboard */; };
 		AB95BA8A1F60E4FA00CCFC9D /* LogicoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB95BA891F60E4FA00CCFC9D /* LogicoTests.swift */; };
 		AB95BA951F60EF9800CCFC9D /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB95BA941F60EF9800CCFC9D /* LaunchScreenViewController.swift */; };
 		AB9E85BD1F62742300986ABA /* globalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB9E85BC1F62742300986ABA /* globalVariables.swift */; };
+		ABA5D7801F6BD30C00539FDC /* myPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA5D77F1F6BD30C00539FDC /* myPageViewController.swift */; };
+		ABA5D7821F6BDFEB00539FDC /* ParentsMyBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA5D7811F6BDFEB00539FDC /* ParentsMyBoxViewController.swift */; };
+		ABA5D7841F6BE2B600539FDC /* DestinationCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA5D7831F6BE2B600539FDC /* DestinationCheckViewController.swift */; };
+		ABA5D7861F6D6E6100539FDC /* ItemInfomationEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA5D7851F6D6E6100539FDC /* ItemInfomationEditViewController.swift */; };
 		ABBCF66A1F6771770044CBD7 /* InquiryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBCF6691F6771770044CBD7 /* InquiryViewController.swift */; };
-		ABBCF66C1F68FAC70044CBD7 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBCF66B1F68FAC70044CBD7 /* WebViewController.swift */; };
 		ABBCF66E1F6903520044CBD7 /* myBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBCF66D1F6903520044CBD7 /* myBoxViewController.swift */; };
 		BBE1EF544D0B11D20592C9DF /* Pods_Logico.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3D7900846DA5F288A8CC77 /* Pods_Logico.framework */; };
 /* End PBXBuildFile section */
@@ -60,15 +61,12 @@
 		AB20EC0E1F611EFD00A4CCD3 /* DeliveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryViewController.swift; sourceTree = "<group>"; };
 		AB20EC101F611F1C00A4CCD3 /* DestinationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationViewController.swift; sourceTree = "<group>"; };
 		AB5496E31F69202400A60345 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AB5496E51F69255000A60345 /* LaunchScreen1ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreen1ViewController.swift; sourceTree = "<group>"; };
-		AB5496E71F69256700A60345 /* LaunchScreen2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreen2ViewController.swift; sourceTree = "<group>"; };
 		AB6508141F6A19CB00382CB4 /* DestinationPopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DestinationPopupView.xib; sourceTree = "<group>"; };
 		AB6508161F6A19F700382CB4 /* WeightPopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeightPopupView.swift; sourceTree = "<group>"; };
 		AB6508181F6A23EB00382CB4 /* DestinationPopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationPopupView.swift; sourceTree = "<group>"; };
 		AB65081A1F6A264200382CB4 /* WeightPopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WeightPopupView.xib; sourceTree = "<group>"; };
 		AB8E04631F6A3E7C00379E1F /* CategoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		AB8E04651F6A453C00379E1F /* MirrorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MirrorViewController.swift; sourceTree = "<group>"; };
-		AB8E04671F6A490000379E1F /* PickupScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PickupScheduleViewController.swift; sourceTree = "<group>"; };
 		AB8E04691F6A4D5700379E1F /* SegmentioBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentioBuilder.swift; sourceTree = "<group>"; };
 		AB8E046B1F6A4DCF00379E1F /* ColorPalette.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPalette.swift; sourceTree = "<group>"; };
 		AB8E046C1F6A4DCF00379E1F /* Hints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Hints.swift; sourceTree = "<group>"; };
@@ -80,6 +78,7 @@
 		AB8E04831F6A953700379E1F /* DeliveryPopupView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeliveryPopupView.xib; sourceTree = "<group>"; };
 		AB8E04851F6A967800379E1F /* DeliveryPopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryPopupView.swift; sourceTree = "<group>"; };
 		AB8E04871F6AD69F00379E1F /* HomeDeliveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDeliveryViewController.swift; sourceTree = "<group>"; };
+		AB8ED8681F70979A008621F4 /* myBoxJoinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myBoxJoinViewController.swift; sourceTree = "<group>"; };
 		AB95BA711F60E4FA00CCFC9D /* Logico.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Logico.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB95BA741F60E4FA00CCFC9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AB95BA791F60E4FA00CCFC9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,8 +89,11 @@
 		AB95BA8B1F60E4FA00CCFC9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB95BA941F60EF9800CCFC9D /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		AB9E85BC1F62742300986ABA /* globalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = globalVariables.swift; sourceTree = "<group>"; };
+		ABA5D77F1F6BD30C00539FDC /* myPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myPageViewController.swift; sourceTree = "<group>"; };
+		ABA5D7811F6BDFEB00539FDC /* ParentsMyBoxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParentsMyBoxViewController.swift; sourceTree = "<group>"; };
+		ABA5D7831F6BE2B600539FDC /* DestinationCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationCheckViewController.swift; sourceTree = "<group>"; };
+		ABA5D7851F6D6E6100539FDC /* ItemInfomationEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemInfomationEditViewController.swift; sourceTree = "<group>"; };
 		ABBCF6691F6771770044CBD7 /* InquiryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InquiryViewController.swift; sourceTree = "<group>"; };
-		ABBCF66B1F68FAC70044CBD7 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		ABBCF66D1F6903520044CBD7 /* myBoxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = myBoxViewController.swift; sourceTree = "<group>"; };
 		CE3D7900846DA5F288A8CC77 /* Pods_Logico.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Logico.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -151,9 +153,6 @@
 				AB8E04831F6A953700379E1F /* DeliveryPopupView.xib */,
 				AB95BA781F60E4FA00CCFC9D /* Main.storyboard */,
 				AB95BA7D1F60E4FA00CCFC9D /* LaunchScreen.storyboard */,
-				AB95BA941F60EF9800CCFC9D /* LaunchScreenViewController.swift */,
-				AB5496E51F69255000A60345 /* LaunchScreen1ViewController.swift */,
-				AB5496E71F69256700A60345 /* LaunchScreen2ViewController.swift */,
 			);
 			name = Storyboards;
 			sourceTree = "<group>";
@@ -167,11 +166,14 @@
 				AB103C071F62CC2000AE8DB0 /* JoinViewController.swift */,
 				AB20EC0E1F611EFD00A4CCD3 /* DeliveryViewController.swift */,
 				ABBCF6691F6771770044CBD7 /* InquiryViewController.swift */,
-				ABBCF66B1F68FAC70044CBD7 /* WebViewController.swift */,
 				ABBCF66D1F6903520044CBD7 /* myBoxViewController.swift */,
-				AB8E04671F6A490000379E1F /* PickupScheduleViewController.swift */,
+				AB8ED8681F70979A008621F4 /* myBoxJoinViewController.swift */,
+				ABA5D77F1F6BD30C00539FDC /* myPageViewController.swift */,
+				ABA5D7851F6D6E6100539FDC /* ItemInfomationEditViewController.swift */,
 				AB8E04811F6A511900379E1F /* ParentsCategoryViewController.swift */,
 				AB8E04871F6AD69F00379E1F /* HomeDeliveryViewController.swift */,
+				ABA5D7811F6BDFEB00539FDC /* ParentsMyBoxViewController.swift */,
+				ABA5D7831F6BE2B600539FDC /* DestinationCheckViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -208,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				AB9E85BC1F62742300986ABA /* globalVariables.swift */,
+				AB95BA941F60EF9800CCFC9D /* LaunchScreenViewController.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -430,19 +433,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB8ED8691F70979A008621F4 /* myBoxJoinViewController.swift in Sources */,
 				AB8E04761F6A4EA600379E1F /* String+Convenience.swift in Sources */,
+				ABA5D7801F6BD30C00539FDC /* myPageViewController.swift in Sources */,
+				ABA5D7841F6BE2B600539FDC /* DestinationCheckViewController.swift in Sources */,
+				ABA5D7821F6BDFEB00539FDC /* ParentsMyBoxViewController.swift in Sources */,
 				AB8E04771F6A4EA600379E1F /* UIColor+RGB.swift in Sources */,
 				AB8E04781F6A4EA600379E1F /* UIFont+ExampleFonts.swift in Sources */,
 				AB8E04791F6A4EA600379E1F /* UINavigationBar+Flat.swift in Sources */,
 				AB9E85BD1F62742300986ABA /* globalVariables.swift in Sources */,
-				ABBCF66C1F68FAC70044CBD7 /* WebViewController.swift in Sources */,
 				AB95BA951F60EF9800CCFC9D /* LaunchScreenViewController.swift in Sources */,
 				AB8E046E1F6A4DCF00379E1F /* Hints.swift in Sources */,
 				AB8E04821F6A511900379E1F /* ParentsCategoryViewController.swift in Sources */,
-				AB5496E81F69256700A60345 /* LaunchScreen2ViewController.swift in Sources */,
 				AB20EC0F1F611EFD00A4CCD3 /* DeliveryViewController.swift in Sources */,
 				AB6508191F6A23EB00382CB4 /* DestinationPopupView.swift in Sources */,
-				AB8E04681F6A490000379E1F /* PickupScheduleViewController.swift in Sources */,
 				ABBCF66E1F6903520044CBD7 /* myBoxViewController.swift in Sources */,
 				AB95BA751F60E4FA00CCFC9D /* AppDelegate.swift in Sources */,
 				AB20EC111F611F1C00A4CCD3 /* DestinationViewController.swift in Sources */,
@@ -450,12 +454,12 @@
 				AB8E046A1F6A4D5700379E1F /* SegmentioBuilder.swift in Sources */,
 				AB8E046D1F6A4DCF00379E1F /* ColorPalette.swift in Sources */,
 				AB8E04641F6A3E7C00379E1F /* CategoryViewController.swift in Sources */,
-				AB5496E61F69255000A60345 /* LaunchScreen1ViewController.swift in Sources */,
 				ABBCF66A1F6771770044CBD7 /* InquiryViewController.swift in Sources */,
 				AB8E04881F6AD69F00379E1F /* HomeDeliveryViewController.swift in Sources */,
 				AB103C081F62CC2000AE8DB0 /* JoinViewController.swift in Sources */,
 				AB6508171F6A19F700382CB4 /* WeightPopupView.swift in Sources */,
 				AB8E04661F6A453C00379E1F /* MirrorViewController.swift in Sources */,
+				ABA5D7861F6D6E6100539FDC /* ItemInfomationEditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

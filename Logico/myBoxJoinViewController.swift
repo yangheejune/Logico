@@ -1,15 +1,15 @@
 //
-//  DeliveryViewController.swift
+//  myBoxJoinViewController.swift
 //  Logico
 //
-//  Created by 양희준 on 2017. 9. 7..
+//  Created by 양희준 on 2017. 9. 19..
 //  Copyright © 2017년 양희준. All rights reserved.
 //
 
 import UIKit
 
-class DeliveryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
-
+class myBoxJoinViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+    
     @IBOutlet weak var DeliverType: UITextField!
     
     @IBOutlet weak var DeliveryCountry: UITextField!
@@ -23,6 +23,11 @@ class DeliveryViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBOutlet weak var Volume_Vertical: UITextField!
     @IBOutlet weak var Volume_Height: UITextField!
     @IBOutlet weak var DeliveryCount: UITextField!
+
+    
+    // 부모 뷰에서 데이터 전달해서 설정해주기 위한 세그웨이 변수
+    var deliveryItem = gMyBoxItemInfo()
+    var deliveryUser = gMyBoxUserInfo()
     
     var DeliveryTypePickerView = UIPickerView()
     var DeliveryCountryPickerView = UIPickerView()
@@ -33,9 +38,95 @@ class DeliveryViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     var WeightPickerNumber = 0
     var DeliveryItemCount = 0
     
-    class func create() -> UIViewController {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        return mainStoryboard.instantiateViewController(withIdentifier: String(describing: self)) as! DeliveryViewController
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.DeliveryTypePickerView.delegate = self
+        self.DeliveryCountryPickerView.delegate = self
+        self.DestinationCountryPickerView.delegate = self
+        self.WeightPickerView.delegate = self
+        self.DeliveryCity.delegate = self
+        self.DeliveryZipcode.delegate = self
+        self.DestinationCountry.delegate = self
+        self.DestinationCity.delegate = self
+        self.DestinationZipcode.delegate = self
+        self.WeightField.delegate = self
+        self.Volume_horizontal.delegate = self
+        self.Volume_Vertical.delegate = self
+        self.Volume_Height.delegate = self
+        self.DeliveryCount.delegate = self
+
+        
+        // 키보드 숫자로 만들기
+        DeliveryZipcode.keyboardType = UIKeyboardType.numberPad
+        DestinationZipcode.keyboardType = UIKeyboardType.numberPad
+        WeightField.keyboardType = UIKeyboardType.numberPad
+        Volume_horizontal.keyboardType = UIKeyboardType.numberPad
+        Volume_Vertical.keyboardType = UIKeyboardType.numberPad
+        Volume_Height.keyboardType = UIKeyboardType.numberPad
+        DeliveryCount.keyboardType = UIKeyboardType.numberPad
+
+        // PickerView setting
+        DeliverType.inputView = DeliveryTypePickerView
+        DeliverType.text = "서류"
+        
+        DeliveryCountry.inputView = DeliveryCountryPickerView
+        DeliveryCountry.text = "대한민국"
+        
+        DestinationCountry.inputView = DestinationCountryPickerView
+        
+        WeightField.inputView = WeightPickerView
+
+        // 여기서 필드에 세그웨이에서 가지고 온 정보를 설정한다.
+        if deliveryItem.deliveryType == 0 {
+            DeliverType.text = "서류"
+        } else {
+            DeliverType.text = "비서류"
+        }
+            
+        switch deliveryItem.destinationCountry {
+        case 0:
+            DestinationCountry.text = "미국"
+        case 1:
+            DestinationCountry.text = "중국"
+        case 2:
+            DestinationCountry.text = "일본"
+        case 3:
+            DestinationCountry.text = "호주"
+        case 62:
+            DestinationCountry.text = "대한민국"
+        default:
+            DestinationCountry.text = ""
+        }
+            
+        DestinationCity.text = deliveryItem.destinationCity
+        DestinationZipcode.text = deliveryItem.destinationZipcode
+        WeightField.text = String(deliveryItem.destinationWeight)
+        Volume_horizontal.text = String(deliveryItem.destinationHorizontal)
+        Volume_Vertical.text = String(deliveryItem.destinationVertical)
+        Volume_Height.text = String(deliveryItem.destinationHeight)
+        DeliveryCount.text = String(deliveryItem.destinationCount)
+
+        switch deliveryUser.deliveryCountry {
+        case 62:
+            DeliveryCountry.text = "대한민국"
+        default:
+            DeliveryCountry.text = ""
+        }
+            
+        DeliveryCity.text = deliveryUser.deliveryCity
+        DeliveryZipcode.text = deliveryUser.deliveryZipcode
+  
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.view.endEditing(true)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -85,111 +176,7 @@ class DeliveryViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         self.view.endEditing(true)
         
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        self.DeliveryTypePickerView.delegate = self
-        self.DeliveryCountryPickerView.delegate = self
-        self.DestinationCountryPickerView.delegate = self
-        self.WeightPickerView.delegate = self
-        self.DeliveryCity.delegate = self
-        self.DeliveryZipcode.delegate = self
-        self.DestinationCountry.delegate = self
-        self.DestinationCity.delegate = self
-        self.DestinationZipcode.delegate = self
-        self.WeightField.delegate = self
-        self.Volume_horizontal.delegate = self
-        self.Volume_Vertical.delegate = self
-        self.Volume_Height.delegate = self
-        self.DeliveryCount.delegate = self
-        
-        
-        let toolBar = UIToolbar()
-        toolBar.barStyle = UIBarStyle.default
-        toolBar.isTranslucent = true
-        toolBar.tintColor = UIColor(red: 110, green: 194, blue: 250, alpha: 1)
-        toolBar.sizeToFit()
-        
-        let doneButton = UIBarButtonItem(title: "완료", style: UIBarButtonItemStyle.plain, target: self, action: #selector(DeliveryViewController.donePicker))
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
 
-        toolBar.setItems([flexibleSpace, flexibleSpace, doneButton], animated: false)
-        toolBar.isUserInteractionEnabled = true
-        
-
-        // 키보드 숫자로 만들기
-        DeliveryZipcode.keyboardType = UIKeyboardType.numberPad
-        DeliveryZipcode.inputAccessoryView = toolBar
-        DestinationZipcode.keyboardType = UIKeyboardType.numberPad
-        DeliveryZipcode.inputAccessoryView = toolBar
-        WeightField.keyboardType = UIKeyboardType.numberPad
-        WeightField.inputAccessoryView = toolBar
-        Volume_horizontal.keyboardType = UIKeyboardType.numberPad
-        Volume_horizontal.inputAccessoryView = toolBar
-        Volume_Vertical.keyboardType = UIKeyboardType.numberPad
-        Volume_Vertical.inputAccessoryView = toolBar
-        Volume_Height.keyboardType = UIKeyboardType.numberPad
-        Volume_Height.inputAccessoryView = toolBar
-        DeliveryCount.keyboardType = UIKeyboardType.numberPad
-        DeliveryCount.inputAccessoryView = toolBar
-        
-        // PickerView setting
-        DeliverType.inputView = DeliveryTypePickerView
-        DeliverType.text = "서류"
-        DeliverType.inputAccessoryView = toolBar
-        
-        
-        DeliveryCountry.inputView = DeliveryCountryPickerView
-        DeliveryCountry.text = "대한민국"
-        DeliveryCountry.inputAccessoryView = toolBar
-
-        DestinationCountry.inputView = DestinationCountryPickerView
-        DestinationCountry.inputAccessoryView = toolBar
-        
-        WeightField.inputView = WeightPickerView
-        WeightField.inputAccessoryView = toolBar
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.view.endEditing(true)
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-
-    }
-    
-    @IBAction func DestinationHelp(_ sender: Any) {
-        let popup: DestinationPopupView = UINib(nibName: "DestinationPopupView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! DestinationPopupView
-        
-        let viewColor = UIColor.brown
-        popup.backgroundColor = viewColor.withAlphaComponent(0.3)
-        popup.frame = self.view.frame
-        
-        let baseViewColor = UIColor.white
-        popup.baseTextView.backgroundColor = baseViewColor.withAlphaComponent(0.8)
-        
-        popup.baseTextView.layer.cornerRadius = 9.0
-        
-        self.view.addSubview(popup)
-    }
-    
-    @IBAction func WeightHelp(_ sender: Any) {
-        let popup: WeightPopupView = UINib(nibName: "WeightPopupView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! WeightPopupView
-        
-        let viewColor = UIColor.brown
-        popup.backgroundColor = viewColor.withAlphaComponent(0.3)
-        popup.frame = self.view.frame
-        
-        let baseViewColor = UIColor.white
-        popup.baseTextView.backgroundColor = baseViewColor.withAlphaComponent(0.8)
-        
-        popup.baseTextView.layer.cornerRadius = 9.0
-        
-        self.view.addSubview(popup)
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let inquiry=segue.destination as! InquiryViewController
@@ -198,7 +185,6 @@ class DeliveryViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             let alert = UIAlertController(title: "에러", message: "정보를 입력하지 않은 곳이 있습니다. 확인해 주세요.", preferredStyle: UIAlertControllerStyle.alert)
             alert.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.default, handler: nil))
             self.present(alert, animated: true, completion: nil)
-            //DeliverType.attributedPlaceholder = NSAttributedString(string: "택배 종류를 입력해주세요", attributes: [NSForegroundColorAttributeName: UIColor.red])
         } else {
             inquiry.DeliveryCountry = DestinationPickerNumber
             inquiry.DeliveryWeight = Double(WeightPickerNumber)
@@ -209,11 +195,6 @@ class DeliveryViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }
         
         
-    }
-    
-    func donePicker() {
-        self.view.endEditing(true)
-
     }
     
     // 리턴을 눌렀을 경우 다음 텍스트 선택
@@ -266,12 +247,22 @@ class DeliveryViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         
         return true
     }
-
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
+
+
     
-    
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
 
 }

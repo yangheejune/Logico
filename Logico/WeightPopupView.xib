@@ -20,7 +20,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="무게를 초과하면 안됨" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2CE-Lp-ed1">
-                            <rect key="frame" x="0.0" y="0.0" width="240" height="97"/>
+                            <rect key="frame" x="0.0" y="0.0" width="240" height="79"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -37,6 +37,11 @@
                                 <action selector="closeBtnTapped:" destination="jnc-5L-QCp" eventType="touchUpInside" id="ppd-7I-PRb"/>
                             </connections>
                         </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="B2S-SE-D81">
+                            <rect key="frame" x="-7" y="87" width="256" height="1"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
@@ -48,4 +53,7 @@
             <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="shadow" width="375" height="9"/>
+    </resources>
 </document>

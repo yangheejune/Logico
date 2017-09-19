@@ -11,11 +11,11 @@ import Realm
 import RealmSwift
 
 class InquiryTableViewCell: UITableViewCell {
-    @IBOutlet fileprivate weak var CompanyImage: UIImageView!
     @IBOutlet fileprivate weak var CompanyName: UILabel!
     @IBOutlet fileprivate weak var DerliveryType: UILabel!
     @IBOutlet fileprivate weak var DeliveryTerm: UILabel!
     @IBOutlet fileprivate weak var Cost: UILabel!
+    @IBOutlet fileprivate weak var Discount: UILabel!
 }
 
 class InquiryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
@@ -85,9 +85,6 @@ class InquiryViewController: UIViewController, UITableViewDataSource, UITableVie
         if gDeliveryitem.isEmpty {
             return cell
         }
-        
-        cell.CompanyImage.image = UIImage(named: "dhl")
-        
         cell.CompanyName.text = gDeliveryitem[indexPath.row].deliveryServiceName
         print("종류 : \(gDeliveryitem[indexPath.row].deliveryType)")
         if gDeliveryitem[indexPath.row].deliveryType == 0 {
@@ -102,13 +99,15 @@ class InquiryViewController: UIViewController, UITableViewDataSource, UITableVie
         
         cell.Cost.text = String(sumCost)
         
+        cell.Discount.text = String(gDeliveryitem[indexPath.row].deliveryDiscount)
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let viewController = self.storyboard?.instantiateViewController(withIdentifier : "WebView") as! WebViewController
-        self.navigationController?.pushViewController(viewController, animated: true)
-        viewController.DestinationServiceType = gDeliveryitem[indexPath.row].deliveryServiceName
+//        let viewController = self.storyboard?.instantiateViewController(withIdentifier : "WebView") as! WebViewController
+//        self.navigationController?.pushViewController(viewController, animated: true)
+       // viewController.DestinationServiceType = gDeliveryitem[indexPath.row].deliveryServiceName
         
         // 나의 메뉴에 저장
         //addDeliveryServiceInfo(deliveryServiceName: gDeliveryitem[indexPath.row].deliveryServiceName, deliveryType: gDeliveryitem[indexPath.row].deliveryType, deliveryCountry: gDeliveryitem[indexPath.row].deliveryCountry, deliveryWeight: gDeliveryitem[indexPath.row].deliveryWeight, deliveryCost: gDeliveryitem[indexPath.row].deliveryCost, deliveryRequestTime: gDeliveryitem[indexPath.row].deliveryRequestTime)
@@ -249,23 +248,6 @@ class InquiryViewController: UIViewController, UITableViewDataSource, UITableVie
             DeliveryWeight = 1.0
         }
     }
-    
-//    func addDeliveryServiceInfo(deliveryServiceName: String, deliveryType: Int, deliveryCountry: Int, deliveryWeight: Double, deliveryCost: Int, deliveryRequestTime: String) {
-//        let realmDeliveryServiceInfo = cMyMenu()
-//        
-//        realmDeliveryServiceInfo.deliveryServiceName = deliveryServiceName
-//        realmDeliveryServiceInfo.deliveryType = deliveryType
-//        realmDeliveryServiceInfo.deliveryCountry = deliveryCountry
-//        realmDeliveryServiceInfo.deliveryWeight = deliveryWeight
-//        realmDeliveryServiceInfo.deliveryCost = deliveryCost
-//        realmDeliveryServiceInfo.deliveryRequestTime = deliveryRequestTime
-//        
-//        try! realm.write {
-//            realm.add(realmDeliveryServiceInfo)
-//        }
-//        
-//        print("Service Info success")
-//    }
     
     func getRealmDate() -> [cDeliveryServiceInfo] {
         var rtTotalTask = [cDeliveryServiceInfo]()

@@ -1,19 +1,14 @@
 //
-//  PickupScheduleViewController.swift
+//  ItemInfomationEditViewController.swift
 //  Logico
 //
-//  Created by 양희준 on 2017. 9. 14..
+//  Created by 양희준 on 2017. 9. 16..
 //  Copyright © 2017년 양희준. All rights reserved.
 //
 
 import UIKit
 
-class PickupScheduleViewController: UIViewController {
-    
-    class func create() -> UIViewController {
-        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        return mainStoryboard.instantiateViewController(withIdentifier: String(describing: self)) as! PickupScheduleViewController
-    }
+class ItemInfomationEditViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,16 +7,20 @@
 //
 
 import UIKit
+import Realm
+import RealmSwift
 
 class DestinationViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate{
     
-   
+    let realm = try! Realm()
+    
     @IBOutlet weak var deliveryServiceCompany: UITextField!
     @IBOutlet weak var wayBillField: UITextField!
     
     var deliveryServiceCompanyPickerView = UIPickerView()
     
-    var CompanyNumber = 0
+    var CompanyString = ""
+    var gDeliveryItem = cDeliveryItem()
     
     var pickerDataSource = ["우체국EMS", "FedEx", "UPS", "DHL"]
     
@@ -39,42 +43,53 @@ class DestinationViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         deliveryServiceCompany.text = pickerDataSource[row]
-        CompanyNumber = row
+        CompanyString = pickerDataSource[row]
+        
+        self.view.endEditing(true)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.deliveryServiceCompanyPickerView.dataSource = self
+        self.deliveryServiceCompanyPickerView.delegate = self
+        self.wayBillField.delegate = self
+        
         let toolBar = UIToolbar()
         toolBar.barStyle = UIBarStyle.default
         toolBar.isTranslucent = true
-        toolBar.tintColor = UIColor(red: 76/255, green: 217/255, blue: 100/255, alpha: 1)
+        toolBar.tintColor = UIColor(red: 110, green: 194, blue: 250, alpha: 1)
         toolBar.sizeToFit()
         
-        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(DestinationViewController.donePicker))
+        let doneButton = UIBarButtonItem(title: "완료", style: UIBarButtonItemStyle.plain, target: self, action: #selector(DestinationViewController.donePicker))
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
         
-        toolBar.setItems([doneButton], animated: false)
+        toolBar.setItems([flexibleSpace, flexibleSpace, doneButton], animated: false)
         toolBar.isUserInteractionEnabled = true
         
-        self.deliveryServiceCompanyPickerView.dataSource = self
-        self.deliveryServiceCompanyPickerView.delegate = self
+        
+        // 키보드 숫자로 만들기
+        wayBillField.keyboardType = UIKeyboardType.numberPad
+        wayBillField.inputAccessoryView = toolBar
+        
         deliveryServiceCompany.inputView = deliveryServiceCompanyPickerView
         deliveryServiceCompany.inputAccessoryView = toolBar
         
-        self.wayBillField.delegate = self
+        
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField){
+        self.view.endEditing(true)
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        deliveryServiceCompany.text = nil
-        wayBillField.text = nil
-        
-        CompanyNumber = 0
-        
-        super.viewWillAppear(animated)
 
-        self.view.setNeedsDisplay()
+        //self.view.setNeedsDisplay()
     }
     
     override func didReceiveMemoryWarning() {
@@ -91,17 +106,36 @@ class DestinationViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     func donePicker() {
-        deliveryServiceCompany.resignFirstResponder()
-    }
-
-    @IBAction func Join(_ sender: Any) {
-        self.performSegue(withIdentifier: "Destination", sender: self)
+        self.view.endEditing(true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let join=segue.destination as! JoinViewController
-        join.CompanyNumber = CompanyNumber
-        join.wayBillString = wayBillField.text!
+        
+        let gDeliveryItem = realm.objects(cDeliveryItem.self).filter("deliveryservicename = '\(CompanyString)' AND waybill = '\(wayBillField.text!)'").first
+        
+        if gDeliveryItem == nil {
+            // 알람
+            let alert = UIAlertController(title: "조회 실패", message: "정보를 입력하지 않았거나, 업체와 운송장 번호가 맞지 않습니다.", preferredStyle: UIAlertControllerStyle.alert)
+            // add an action (button)
+            alert.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.default, handler: nil))
+            // show the alert
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            let join=segue.destination as! JoinViewController
+            join.beginData = gDeliveryItem?.deliveryBegin
+            join.beginAddress = (gDeliveryItem?.deliveryBeginAddress)!
+            join.locationDate = gDeliveryItem?.deliveryLocationDate
+            join.locationAddress = (gDeliveryItem?.deliveryLocation)!
+            join.endDate = gDeliveryItem?.deliveryEnd
+            join.endAddress = (gDeliveryItem?.deliveryEndAddress)!
+        }
+        
+        self.view.endEditing(true)
+        // 인텍스 값을 가지고 있어야 함
+        
     }
-
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 }

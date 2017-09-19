@@ -21,7 +21,12 @@ class HomeDeliveryViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+    }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        self.view.endEditing(true)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -32,6 +37,10 @@ class HomeDeliveryViewController: UIViewController {
         let storyboard: UIStoryboard = self.storyboard!
         let nextView = storyboard.instantiateViewController(withIdentifier: "myBoxViewController")
         present(nextView, animated: true, completion: nil)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     /*
     // MARK: - Navigation

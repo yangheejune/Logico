@@ -35,8 +35,8 @@ class cDeliveryServiceInfo: Object {
 }
 
 class cMyBoxItemInfo: Object {
-    dynamic var UserID              = String()          // 나만의 택배 정보를 확인할 아이디
-    dynamic var deliveryType        = Int()             // 택배 종류 (1:서류, 2:비서류)
+    dynamic var UserID                  = String()          // 나만의 택배 정보를 확인할 아이디
+    dynamic var deliveryType            = Int()             // 택배 종류 (1:서류, 2:비서류)
     dynamic var destinationCountry     = Int()          // 도착지 나라 ex) 62: 대한민국 55:프랑스
     dynamic var destinationWeight      = Double()       // 중량 (최대 30kg까지)
     dynamic var destinationHorizontal  = Double()       // 가로 길이
@@ -112,11 +112,11 @@ class LaunchScreenViewController: UIViewController {
         // 나만의 배송 정보
         addMyBoxItemInfo(UserID: "Logico", deliveryType: 1, destinationCountry: 1, destinationWeight: (5.0), destinationHorizontal: 10, destinationVertical: 10, destinationHeight: 3, destinationCity: "베이징", destinationZipcode: "9879", destinationCount: 10)
         
-        addMyBoxItemInfo(UserID: "Logico", deliveryType: 0, destinationCountry: 2, destinationWeight: (2.0), destinationHorizontal: 10, destinationVertical: 10, destinationHeight: 1, destinationCity: "LA", destinationZipcode: "1232", destinationCount: 10)
+        addMyBoxItemInfo(UserID: "Logico", deliveryType: 0, destinationCountry: 0, destinationWeight: (2.0), destinationHorizontal: 10, destinationVertical: 10, destinationHeight: 1, destinationCity: "LA", destinationZipcode: "1232", destinationCount: 10)
         
-        addMyBoxItemInfo(UserID: "Logico", deliveryType: 0, destinationCountry: 3, destinationWeight: (0.5), destinationHorizontal: 2, destinationVertical: 2, destinationHeight: 1, destinationCity: "몰라", destinationZipcode: "5232", destinationCount: 10)
+        addMyBoxItemInfo(UserID: "Logico", deliveryType: 0, destinationCountry: 2, destinationWeight: (0.5), destinationHorizontal: 2, destinationVertical: 2, destinationHeight: 1, destinationCity: "도쿄", destinationZipcode: "5232", destinationCount: 10)
         
-        addMyBoxItemInfo(UserID: "Logico", deliveryType: 1, destinationCountry: 4, destinationWeight: (10.0), destinationHorizontal: 30, destinationVertical: 30, destinationHeight: 20, destinationCity: "시드니", destinationZipcode: "21434", destinationCount: 5)
+        addMyBoxItemInfo(UserID: "Logico", deliveryType: 1, destinationCountry: 3, destinationWeight: (10.0), destinationHorizontal: 30, destinationVertical: 30, destinationHeight: 20, destinationCity: "시드니", destinationZipcode: "21434", destinationCount: 5)
         
         // 나만의 출발지 정보
         addMyBoxUserInfo(UserID: "Logico", UserAddressName: "우리집", deliveryCountry: 62, deliveryCity: "경기도 광주시", deliveryZipcode: "12879")
@@ -153,10 +153,6 @@ class LaunchScreenViewController: UIViewController {
         try! realm.write {
             realm.add(realmDeliveryItem)
         }
-        
-        //let deliveryitem = realm.objects(cDeliveryItem.self)
-        
-        //print(deliveryitem)
         print("addDeliveryItem success")
     }
     

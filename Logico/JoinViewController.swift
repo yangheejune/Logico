@@ -12,17 +12,21 @@ import RealmSwift
 
 class JoinViewController: UIViewController {
     
-    @IBOutlet weak var BeginDate: UILabel!
-    @IBOutlet weak var BeginAddress: UILabel!
+    @IBOutlet weak var lbBeginDate: UILabel!
+    @IBOutlet weak var lbBeginAddress: UILabel!
     
-    @IBOutlet weak var LocationDate: UILabel!
-    @IBOutlet weak var LocationAddress: UILabel!
+    @IBOutlet weak var lbLocationDate: UILabel!
+    @IBOutlet weak var lbLocationAddress: UILabel!
     
-    @IBOutlet weak var EndDate: UILabel!
-    @IBOutlet weak var EndAddress: UILabel!
+    @IBOutlet weak var lbEndDate: UILabel!
+    @IBOutlet weak var lbEndAddress: UILabel!
     
-    var CompanyNumber = 0
-    var wayBillString = ""
+    var beginData: Date? = nil
+    var beginAddress = ""
+    var locationDate: Date? = nil
+    var locationAddress = ""
+    var endDate: Date? = nil
+    var endAddress = ""
     
     let realm = try! Realm()
     
@@ -33,35 +37,16 @@ class JoinViewController: UIViewController {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy'-'MM'-'dd hh:mm:ss"
 
-        print("CompanyNumber = \(CompanyNumber) , wayBillString = \(wayBillString)")
-        
-        // Do any additional setup after loading the view.
-        
-        BeginDate.lineBreakMode = .byWordWrapping
-        BeginDate.numberOfLines = 0
-        
-        let deliveryitem = realm.objects(cDeliveryItem.self).filter("deliveryservicename == \(CompanyNumber) AND waybill = '\(wayBillString)'").first
-        
-        if deliveryitem != nil {
-            BeginDate.text = formatter.string(from: (deliveryitem?.deliveryBegin)!)
-            BeginAddress.text = deliveryitem?.deliveryBeginAddress
-            
-            EndDate.text = formatter.string(from: (deliveryitem?.deliveryEnd)!)
-            EndAddress.text = deliveryitem?.deliveryEndAddress
-            LocationAddress.text = deliveryitem?.deliveryLocation
-            LocationDate.text = formatter.string(from: (deliveryitem?.deliveryLocationDate)!)
-        }
-        else {
+        lbBeginDate.lineBreakMode = .byWordWrapping
+        lbBeginDate.numberOfLines = 0
 
-            // 알람
-            let alert = UIAlertController(title: "조회 실패", message: "업체와 운송장 번호가 맞지 않습니다.", preferredStyle: UIAlertControllerStyle.alert)
+        lbBeginDate.text = formatter.string(from: beginData!)
+        lbBeginAddress.text = beginAddress
             
-            // add an action (button)
-            alert.addAction(UIAlertAction(title: "확인", style: UIAlertActionStyle.default, handler: nil))
-            
-            // show the alert
-            self.present(alert, animated: true, completion: nil)
-        }
+        lbEndDate.text = formatter.string(from: locationDate!)
+        lbEndAddress.text = locationAddress
+        lbLocationAddress.text = endAddress
+        lbLocationDate.text = formatter.string(from: endDate!)
     }
 
     override func didReceiveMemoryWarning() {
