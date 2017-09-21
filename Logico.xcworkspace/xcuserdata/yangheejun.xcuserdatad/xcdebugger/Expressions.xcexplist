@@ -3,28 +3,6 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "InquiryViewController.getRealmDate() -&gt; [cDeliveryServiceInfo]:InquiryViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "DeliveryCountry">
-            </PersistentString>
-            <PersistentString
-               value = "DeliveryWeight">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "MirrorViewController.keyboardWillShow(notification : NSNotification) -&gt; ():MirrorViewController.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.view.frame.origin.y">
-            </PersistentString>
-            <PersistentString
-               value = "keyboardSize.height">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "myBoxJoinViewController.viewDidLoad() -&gt; ():myBoxJoinViewController.swift">
          <PersistentStrings>
             <PersistentString
@@ -47,10 +25,54 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "myPageViewController.collectionView(UICollectionView, didSelectItemAt : IndexPath) -&gt; ():myPageViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "ggdeliveryItem">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "InquiryViewController.viewDidLoad() -&gt; ():InquiryViewController.swift">
          <PersistentStrings>
             <PersistentString
                value = "gDeliveryitem">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "InquiryViewController.getRealmDate() -&gt; [cDeliveryServiceInfo]:InquiryViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "DeliveryCountry">
+            </PersistentString>
+            <PersistentString
+               value = "DeliveryWeight">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ItemInfomationEditViewController.save(Any) -&gt; ():ItemInfomationEditViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "TFdeliveryType.text">
+            </PersistentString>
+            <PersistentString
+               value = "TFdestinationCountry.text">
+            </PersistentString>
+            <PersistentString
+               value = "TFdestinationCount.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MirrorViewController.keyboardWillShow(notification : NSNotification) -&gt; ():MirrorViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.view.frame.origin.y">
+            </PersistentString>
+            <PersistentString
+               value = "keyboardSize.height">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

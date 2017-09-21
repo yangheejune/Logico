@@ -11,6 +11,7 @@ import UIKit
 
 class gMyBoxItemInfo {
     var UserID                 = String()      // 나만의 택배 정보를 확인할 아이디
+    var BoxItemName             = String()
     var deliveryType           = Int()         // 택배 종류 (1:서류, 2:비서류)
     var destinationCountry     = Int()          // 도착지 나라 ex) 62: 대한민국 55:프랑스
     var destinationWeight      = Double()       // 중량 (최대 30kg까지)
@@ -23,6 +24,7 @@ class gMyBoxItemInfo {
     
     init() {
         self.UserID = ""
+        self.BoxItemName = ""
         self.deliveryType = 0
         self.destinationCountry = -1
         self.destinationWeight = 0
@@ -53,6 +55,7 @@ class gMyBoxUserInfo {
 }
 
 var ggdeliveryItem = gMyBoxItemInfo.init()
+var ggUserItem = gMyBoxUserInfo.init()
 
 var DeliveryTypePickerDataSource = ["서류", "비서류"]
 var DeliveryPickerDataSource = ["대한민국"]

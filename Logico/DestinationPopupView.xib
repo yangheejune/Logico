@@ -15,21 +15,18 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nGG-Ia-cOg">
-                    <rect key="frame" x="67" y="269" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nGG-Ia-cOg">
+                    <rect key="frame" x="67" y="269.5" width="241" height="128"/>
                     <subviews>
-                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="도착지는 잘 설정해야 함" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u2j-OV-37H">
-                            <rect key="frame" x="0.0" y="0.0" width="240" height="97"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="도착지는 잘 설정해야 함" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="u2j-OV-37H">
+                            <rect key="frame" x="0.0" y="0.0" width="241" height="97"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CMF-Xl-mLH">
-                            <rect key="frame" x="4" y="97" width="232" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CMF-Xl-mLH">
+                            <rect key="frame" x="4" y="97" width="233" height="30"/>
                             <state key="normal" title="닫 기">
                                 <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -37,16 +34,36 @@
                                 <action selector="closeBtnTapped:" destination="6Gz-YX-Nsg" eventType="touchUpInside" id="MMp-jY-VvQ"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="lhn-7o-mCn">
-                            <rect key="frame" x="-8" y="87" width="256" height="1"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="shadow" translatesAutoresizingMaskIntoConstraints="NO" id="lhn-7o-mCn">
+                            <rect key="frame" x="-8" y="87" width="257" height="1"/>
                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="hMp-sT-JgM"/>
+                            </constraints>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="CMF-Xl-mLH" firstAttribute="top" secondItem="lhn-7o-mCn" secondAttribute="bottom" constant="9" id="5M2-pY-3fL"/>
+                        <constraint firstItem="lhn-7o-mCn" firstAttribute="leading" secondItem="nGG-Ia-cOg" secondAttribute="leading" constant="-8" id="7Le-fn-PZt"/>
+                        <constraint firstItem="lhn-7o-mCn" firstAttribute="centerX" secondItem="CMF-Xl-mLH" secondAttribute="centerX" id="BRz-Pf-SI1"/>
+                        <constraint firstItem="lhn-7o-mCn" firstAttribute="top" secondItem="nGG-Ia-cOg" secondAttribute="top" constant="87" id="Hxa-pi-yBd"/>
+                        <constraint firstItem="CMF-Xl-mLH" firstAttribute="top" secondItem="u2j-OV-37H" secondAttribute="bottom" id="IMA-06-Gpv"/>
+                        <constraint firstAttribute="trailing" secondItem="u2j-OV-37H" secondAttribute="trailing" id="Ich-qx-Pmd"/>
+                        <constraint firstItem="CMF-Xl-mLH" firstAttribute="leading" secondItem="nGG-Ia-cOg" secondAttribute="leading" constant="4" id="ctm-Qi-522"/>
+                        <constraint firstItem="u2j-OV-37H" firstAttribute="centerX" secondItem="lhn-7o-mCn" secondAttribute="centerX" id="cvN-ax-IJk"/>
+                        <constraint firstAttribute="bottom" secondItem="CMF-Xl-mLH" secondAttribute="bottom" constant="1" id="mxc-8A-Fus"/>
+                        <constraint firstItem="u2j-OV-37H" firstAttribute="leading" secondItem="nGG-Ia-cOg" secondAttribute="leading" id="qUm-K4-nNj"/>
+                        <constraint firstItem="u2j-OV-37H" firstAttribute="top" secondItem="nGG-Ia-cOg" secondAttribute="top" id="smH-Dc-1Xf"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="nGG-Ia-cOg" firstAttribute="centerY" secondItem="6Gz-YX-Nsg" secondAttribute="centerY" id="5fz-Ia-q5f"/>
+                <constraint firstItem="nGG-Ia-cOg" firstAttribute="leading" secondItem="6Gz-YX-Nsg" secondAttribute="leading" constant="67" id="vF2-qw-Qh2"/>
+                <constraint firstItem="nGG-Ia-cOg" firstAttribute="centerX" secondItem="6Gz-YX-Nsg" secondAttribute="centerX" id="yxT-sN-dnF"/>
+            </constraints>
             <connections>
                 <outlet property="baseTextView" destination="u2j-OV-37H" id="AbD-mJ-hIm"/>
             </connections>

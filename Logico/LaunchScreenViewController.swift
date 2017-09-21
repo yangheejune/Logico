@@ -48,6 +48,10 @@ class cMyBoxItemInfo: Object {
     dynamic var destinationCity        = String()       // 도착 도시
     dynamic var destinationZipcode     = String()       // 도착 우편번호
     dynamic var destinationCount       = Int()          // 물품 갯수
+    
+    override static func primaryKey() -> String? {
+        return "BoxItemName"
+    }
 }
 
 class cMyBoxUserInfo: Object {

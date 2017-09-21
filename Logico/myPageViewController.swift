@@ -66,6 +66,16 @@ class myPageViewController: UIViewController, UICollectionViewDataSource, UIColl
         UserMail.text = gUserInfomation.UserEmail
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        gDeliveryItemInfo = getDeliveryItemInfo(UserID: "Logico")
+        
+        gDeliberyUserInfo = getDeliveryUserInfo(UserID: "Logico")
+        
+        gUserInfomation = getUserInfomation(UserID: "Logico")
+        
+        //BoxInofomationCollection.reloadData()
+        //UserInfomationCollection.reloadData()
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -162,7 +172,7 @@ class myPageViewController: UIViewController, UICollectionViewDataSource, UIColl
         if collectionView == BoxInofomationCollection {
             let cell = collectionView.cellForItem(at: indexPath)
             
-            cell?.layer.borderWidth = 2.0
+            cell?.layer.borderWidth = 0.5
             cell?.layer.borderColor = UIColor.gray.cgColor
             
             if gDeliveryItemInfo.isEmpty {
@@ -170,6 +180,8 @@ class myPageViewController: UIViewController, UICollectionViewDataSource, UIColl
             }
             
             deliveryItem.deliveryType = gDeliveryItemInfo[indexPath.row].deliveryType
+            
+            deliveryItem.BoxItemName = gDeliveryItemInfo[indexPath.row].BoxItemName
             
             deliveryItem.destinationCountry = gDeliveryItemInfo[indexPath.row].destinationCountry
             
@@ -186,14 +198,24 @@ class myPageViewController: UIViewController, UICollectionViewDataSource, UIColl
             deliveryItem.destinationVertical = gDeliveryItemInfo[indexPath.row].destinationVertical
             
             deliveryItem.destinationHeight = gDeliveryItemInfo[indexPath.row].destinationHeight
-            
-            //print ("deliverItem  = \(deliveryItem)")
+
+            ggdeliveryItem.deliveryType = deliveryItem.deliveryType
+            ggdeliveryItem.BoxItemName = deliveryItem.BoxItemName
+            ggdeliveryItem.destinationCountry = deliveryItem.destinationCountry
+            ggdeliveryItem.destinationCity = deliveryItem.destinationCity
+            ggdeliveryItem.destinationZipcode = deliveryItem.destinationZipcode
+            ggdeliveryItem.destinationCount = deliveryItem.destinationCount
+            ggdeliveryItem.destinationWeight = deliveryItem.destinationWeight
+            ggdeliveryItem.destinationHorizontal = deliveryItem.destinationHorizontal
+            ggdeliveryItem.destinationVertical = deliveryItem.destinationVertical
+            ggdeliveryItem.destinationHeight = deliveryItem.destinationHeight
+
             
             
         } else {
             let cell = collectionView.cellForItem(at: indexPath)
             
-            cell?.layer.borderWidth = 2.0
+            cell?.layer.borderWidth = 0.5
             cell?.layer.borderColor = UIColor.gray.cgColor
             
             if gDeliberyUserInfo.isEmpty {
@@ -201,14 +223,14 @@ class myPageViewController: UIViewController, UICollectionViewDataSource, UIColl
             }
             
             deliveryUser.UserAddressName = gDeliberyUserInfo[indexPath.row].UserAddressName
-            
             deliveryUser.deliveryCountry = gDeliberyUserInfo[indexPath.row].deliveryCountry
-            
             deliveryUser.deliveryCity = gDeliberyUserInfo[indexPath.row].deliveryCity
-            
             deliveryUser.deliveryZipcode = gDeliberyUserInfo[indexPath.row].deliveryZipcode
             
-            
+            ggUserItem.UserAddressName = gDeliberyUserInfo[indexPath.row].UserAddressName
+            ggUserItem.deliveryCountry = gDeliberyUserInfo[indexPath.row].deliveryCountry
+            ggUserItem.deliveryCity = gDeliberyUserInfo[indexPath.row].deliveryCity
+            ggUserItem.deliveryZipcode = gDeliberyUserInfo[indexPath.row].deliveryZipcode
         }
     }
     
@@ -224,14 +246,6 @@ class myPageViewController: UIViewController, UICollectionViewDataSource, UIColl
             
             cell?.layer.borderWidth = 1.0
             cell?.layer.borderColor = UIColor.white.cgColor
-            
-        }
-    }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "MyPageItemInfo"
-        {
             
         }
     }

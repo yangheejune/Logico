@@ -145,7 +145,7 @@ class testViewController: UIViewController, UICollectionViewDataSource, UICollec
         if collectionView == BoxInofomationCollection {
             let cell = collectionView.cellForItem(at: indexPath)
             
-            cell?.layer.borderWidth = 2.0
+            cell?.layer.borderWidth = 1.0
             cell?.layer.borderColor = UIColor.gray.cgColor
             
             if gDeliveryItemInfo.isEmpty {
@@ -206,8 +206,6 @@ class testViewController: UIViewController, UICollectionViewDataSource, UICollec
             deliveryUser.deliveryCity = gDeliberyUserInfo[indexPath.row].deliveryCity
             
             deliveryUser.deliveryZipcode = gDeliberyUserInfo[indexPath.row].deliveryZipcode
-            
-            
         }
     }
     
@@ -215,16 +213,16 @@ class testViewController: UIViewController, UICollectionViewDataSource, UICollec
         if collectionView == BoxInofomationCollection {
             let cell = collectionView.cellForItem(at: indexPath)
             
-            cell?.layer.borderWidth = 2.0
+            cell?.layer.borderWidth = 1.0
             cell?.layer.borderColor = UIColor.white.cgColor
+            
         } else {
             let cell = collectionView.cellForItem(at: indexPath)
             
-            cell?.layer.borderWidth = 2.0
+            cell?.layer.borderWidth = 1.0
             cell?.layer.borderColor = UIColor.white.cgColor
         }
     }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if deliveryUser == nil && deliveryItem == nil {
