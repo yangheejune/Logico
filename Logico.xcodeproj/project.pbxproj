@@ -48,7 +48,7 @@
 		ABA5D7841F6BE2B600539FDC /* DestinationCheckViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA5D7831F6BE2B600539FDC /* DestinationCheckViewController.swift */; };
 		ABA5D7861F6D6E6100539FDC /* ItemInfomationEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA5D7851F6D6E6100539FDC /* ItemInfomationEditViewController.swift */; };
 		ABBCF66A1F6771770044CBD7 /* InquiryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABBCF6691F6771770044CBD7 /* InquiryViewController.swift */; };
-		BBE1EF544D0B11D20592C9DF /* Pods_Logico.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE3D7900846DA5F288A8CC77 /* Pods_Logico.framework */; };
+		D688EC071F4002DD7E55A317 /* Pods_Logico.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B59F3E9A06CC2309ACC75BD2 /* Pods_Logico.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,8 +62,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		406BA3033929EC2766E43831 /* Pods-Logico.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Logico.release.xcconfig"; path = "Pods/Target Support Files/Pods-Logico/Pods-Logico.release.xcconfig"; sourceTree = "<group>"; };
-		7FDD19C6F92DE3C526B7E14F /* Pods-Logico.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Logico.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Logico/Pods-Logico.debug.xcconfig"; sourceTree = "<group>"; };
+		94C1E39B8C4CF3D31EC81270 /* Pods-Logico.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Logico.release.xcconfig"; path = "Pods/Target Support Files/Pods-Logico/Pods-Logico.release.xcconfig"; sourceTree = "<group>"; };
 		AB103C071F62CC2000AE8DB0 /* JoinViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		AB20EC0E1F611EFD00A4CCD3 /* DeliveryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeliveryViewController.swift; sourceTree = "<group>"; };
 		AB20EC101F611F1C00A4CCD3 /* DestinationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationViewController.swift; sourceTree = "<group>"; };
@@ -109,7 +108,8 @@
 		ABA5D7831F6BE2B600539FDC /* DestinationCheckViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DestinationCheckViewController.swift; sourceTree = "<group>"; };
 		ABA5D7851F6D6E6100539FDC /* ItemInfomationEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemInfomationEditViewController.swift; sourceTree = "<group>"; };
 		ABBCF6691F6771770044CBD7 /* InquiryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InquiryViewController.swift; sourceTree = "<group>"; };
-		CE3D7900846DA5F288A8CC77 /* Pods_Logico.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Logico.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B59F3E9A06CC2309ACC75BD2 /* Pods_Logico.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Logico.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA63C22424AD31995CD69ECC /* Pods-Logico.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Logico.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Logico/Pods-Logico.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +117,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBE1EF544D0B11D20592C9DF /* Pods_Logico.framework in Frameworks */,
+				D688EC071F4002DD7E55A317 /* Pods_Logico.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,19 +131,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		5F669452B6CBF712C3DAEB0E /* Pods */ = {
+		8752E61F9EA7748BA417DDC1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7FDD19C6F92DE3C526B7E14F /* Pods-Logico.debug.xcconfig */,
-				406BA3033929EC2766E43831 /* Pods-Logico.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		851BE6FF24D6F3F4D2942831 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				CE3D7900846DA5F288A8CC77 /* Pods_Logico.framework */,
+				B59F3E9A06CC2309ACC75BD2 /* Pods_Logico.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -242,8 +233,8 @@
 				AB95BA731F60E4FA00CCFC9D /* Logico */,
 				AB95BA881F60E4FA00CCFC9D /* LogicoTests */,
 				AB95BA721F60E4FA00CCFC9D /* Products */,
-				5F669452B6CBF712C3DAEB0E /* Pods */,
-				851BE6FF24D6F3F4D2942831 /* Frameworks */,
+				D5F5060057E2D0368E6A26F8 /* Pods */,
+				8752E61F9EA7748BA417DDC1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -281,6 +272,15 @@
 			path = LogicoTests;
 			sourceTree = "<group>";
 		};
+		D5F5060057E2D0368E6A26F8 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EA63C22424AD31995CD69ECC /* Pods-Logico.debug.xcconfig */,
+				94C1E39B8C4CF3D31EC81270 /* Pods-Logico.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -288,12 +288,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AB95BA8E1F60E4FA00CCFC9D /* Build configuration list for PBXNativeTarget "Logico" */;
 			buildPhases = (
-				008B7EAF62408297896DEAC4 /* [CP] Check Pods Manifest.lock */,
+				68E8F6B8A578192FBC6705B9 /* [CP] Check Pods Manifest.lock */,
 				AB95BA6D1F60E4F900CCFC9D /* Sources */,
 				AB95BA6E1F60E4F900CCFC9D /* Frameworks */,
 				AB95BA6F1F60E4F900CCFC9D /* Resources */,
-				5995D40B22ECFA90A69BDD97 /* [CP] Embed Pods Frameworks */,
-				AFF6AEEF6C47CF8BD062BA3A /* [CP] Copy Pods Resources */,
+				4F149AE0CE00CB5A86E1294A /* [CP] Embed Pods Frameworks */,
+				E1391B388D400804C60F40C3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -329,17 +329,19 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "양희준";
 				TargetAttributes = {
 					AB95BA701F60E4F900CCFC9D = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = S66VGVB29H;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					AB95BA841F60E4FA00CCFC9D = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = S66VGVB29H;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 						TestTargetID = AB95BA701F60E4F900CCFC9D;
 					};
@@ -391,7 +393,31 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		008B7EAF62408297896DEAC4 /* [CP] Check Pods Manifest.lock */ = {
+		4F149AE0CE00CB5A86E1294A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Logico/Pods-Logico-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Segmentio/Segmentio.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Segmentio.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Logico/Pods-Logico-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		68E8F6B8A578192FBC6705B9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -409,33 +435,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5995D40B22ECFA90A69BDD97 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Logico/Pods-Logico-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/FoldingCell/FoldingCell.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/Segmentio/Segmentio.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FoldingCell.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Segmentio.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Logico/Pods-Logico-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AFF6AEEF6C47CF8BD062BA3A /* [CP] Copy Pods Resources */ = {
+		E1391B388D400804C60F40C3 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -539,7 +539,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -547,7 +549,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -590,7 +596,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -598,7 +606,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -626,31 +638,31 @@
 		};
 		AB95BA8F1F60E4FA00CCFC9D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7FDD19C6F92DE3C526B7E14F /* Pods-Logico.debug.xcconfig */;
+			baseConfigurationReference = EA63C22424AD31995CD69ECC /* Pods-Logico.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = S66VGVB29H;
 				INFOPLIST_FILE = Logico/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yangheejune.Logico;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
 		AB95BA901F60E4FA00CCFC9D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 406BA3033929EC2766E43831 /* Pods-Logico.release.xcconfig */;
+			baseConfigurationReference = 94C1E39B8C4CF3D31EC81270 /* Pods-Logico.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = S66VGVB29H;
 				INFOPLIST_FILE = Logico/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yangheejune.Logico;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -664,7 +676,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yangheejune.LogicoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Logico.app/Logico";
 			};
 			name = Debug;
@@ -679,7 +692,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = yangheejune.LogicoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Off;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Logico.app/Logico";
 			};
 			name = Release;

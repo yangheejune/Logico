@@ -11,43 +11,43 @@ import Realm
 import RealmSwift
 
 class cDeliveryItem: Object{
-    dynamic var UserID                          = String()
-    dynamic var waybill                         = String()        // 운송장번호
-    dynamic var deliveryservicename             = String()        // 택배 업체명
-    dynamic var deliveryBegin                   = String()        // 택배 배송 시작 기간
-    dynamic var deliveryBeginAddress            = String()        // 택배 배송 시작 주소
-    dynamic var deliveryEnd                     = String()        // 택배 배송 도착 기간
-    dynamic var deliveryEndAddress              = String()        // 택배 배송 도착 주소
-    dynamic var deliveryLocationDate            = String()        // 택배 현재 위치 시간
-    dynamic var deliveryLocation                = String()        // 택배 현재 위치
-    dynamic var deliveryLocationType            = Int()           // 현재 위치를  0~11까지 설정
+    @objc dynamic var UserID                          = String()
+    @objc dynamic var waybill                         = String()        // 운송장번호
+    @objc dynamic var deliveryservicename             = String()        // 택배 업체명
+    @objc dynamic var deliveryBegin                   = String()        // 택배 배송 시작 기간
+    @objc dynamic var deliveryBeginAddress            = String()        // 택배 배송 시작 주소
+    @objc dynamic var deliveryEnd                     = String()        // 택배 배송 도착 기간
+    @objc dynamic var deliveryEndAddress              = String()        // 택배 배송 도착 주소
+    @objc dynamic var deliveryLocationDate            = String()        // 택배 현재 위치 시간
+    @objc dynamic var deliveryLocation                = String()        // 택배 현재 위치
+    @objc dynamic var deliveryLocationType            = Int()           // 현재 위치를  0~11까지 설정
 }
 
 class cDeliveryServiceInfo: Object {
-    dynamic var deliveryServiceName = String()          // 택배 업체명
-    dynamic var deliveryType        = Int()             // 택배 종류 (1:서류, 2:비서류)
-    dynamic var deliveryServiceType = String()          // 프리미엄 서비스 인지 이런것들을 기록
-    dynamic var deliveryCountry     = Int()             // 보낼 나라 ex) 62: 대한민국 55:프랑스
-    dynamic var deliveryWeight      = Double()          // 택배 중량 (최대 30kg까지)
-    dynamic var deliveryCity        = String()          // 택배 보낼 도시
-    dynamic var deliveryZipcode     = String()          // 우편번호
-    dynamic var deliveryCost        = Int()             // 택배 가격
-    dynamic var deliveryDiscount    = Int()             // 할인율
-    dynamic var deliveryRequestTime = String()          // 배송 소요 기간
+    @objc dynamic var deliveryServiceName = String()          // 택배 업체명
+    @objc dynamic var deliveryType        = Int()             // 택배 종류 (1:서류, 2:비서류)
+    @objc dynamic var deliveryServiceType = String()          // 프리미엄 서비스 인지 이런것들을 기록
+    @objc dynamic var deliveryCountry     = Int()             // 보낼 나라 ex) 62: 대한민국 55:프랑스
+    @objc dynamic var deliveryWeight      = Double()          // 택배 중량 (최대 30kg까지)
+    @objc dynamic var deliveryCity        = String()          // 택배 보낼 도시
+    @objc dynamic var deliveryZipcode     = String()          // 우편번호
+    @objc dynamic var deliveryCost        = Int()             // 택배 가격
+    @objc dynamic var deliveryDiscount    = Int()             // 할인율
+    @objc dynamic var deliveryRequestTime = String()          // 배송 소요 기간
 }
 
 class cMyBoxItemInfo: Object {
-    dynamic var UserID                  = String()          // 나만의 택배 정보를 확인할 아이디
-    dynamic var BoxItemName             = String()
-    dynamic var deliveryType            = Int()             // 택배 종류 (1:서류, 2:비서류)
-    dynamic var destinationCountry     = Int()          // 도착지 나라 ex) 62: 대한민국 55:프랑스
-    dynamic var destinationWeight      = Double()       // 중량 (최대 30kg까지)
-    dynamic var destinationHorizontal  = Double()       // 가로 길이
-    dynamic var destinationVertical    = Double()       // 세로 길이
-    dynamic var destinationHeight      = Double()       // 높이
-    dynamic var destinationCity        = String()       // 도착 도시
-    dynamic var destinationZipcode     = String()       // 도착 우편번호
-    dynamic var destinationCount       = Int()          // 물품 갯수
+    @objc dynamic var UserID                  = String()          // 나만의 택배 정보를 확인할 아이디
+    @objc dynamic var BoxItemName             = String()
+    @objc dynamic var deliveryType            = Int()             // 택배 종류 (1:서류, 2:비서류)
+    @objc dynamic var destinationCountry     = Int()          // 도착지 나라 ex) 62: 대한민국 55:프랑스
+    @objc dynamic var destinationWeight      = Double()       // 중량 (최대 30kg까지)
+    @objc dynamic var destinationHorizontal  = Double()       // 가로 길이
+    @objc dynamic var destinationVertical    = Double()       // 세로 길이
+    @objc dynamic var destinationHeight      = Double()       // 높이
+    @objc dynamic var destinationCity        = String()       // 도착 도시
+    @objc dynamic var destinationZipcode     = String()       // 도착 우편번호
+    @objc dynamic var destinationCount       = Int()          // 물품 갯수
     
     override static func primaryKey() -> String? {
         return "BoxItemName"
@@ -55,17 +55,21 @@ class cMyBoxItemInfo: Object {
 }
 
 class cMyBoxUserInfo: Object {
-    dynamic var UserID              = String()          // 나만의 택배 정보를 확인할 아이디
-    dynamic var UserType            = Int()             // 1이면 우리집 2이면 직장
-    dynamic var UserAddressName     = String()          // 사용자 만의 발송명 지정
-    dynamic var deliveryCountry     = Int()             // 발송 나라 ex) 62: 대한민국 55:프랑스
-    dynamic var deliveryCity        = String()          // 발송 도시
-    dynamic var deliveryZipcode     = String()          // 발송 우편번호
+    @objc dynamic var UserID              = String()          // 나만의 택배 정보를 확인할 아이디
+    @objc dynamic var UserType            = Int()             // 1이면 우리집 2이면 직장
+    @objc dynamic var UserAddressName     = String()          // 사용자 만의 발송명 지정
+    @objc dynamic var deliveryCountry     = Int()             // 발송 나라 ex) 62: 대한민국 55:프랑스
+    @objc dynamic var deliveryCity        = String()          // 발송 도시
+    @objc dynamic var deliveryZipcode     = String()          // 발송 우편번호
+    
+    override static func primaryKey() -> String? {
+        return "UserAddressName"
+    }
 }
 
 class cMyPage: Object {
-    dynamic var UserID              = String()
-    dynamic var UserEmail           = String()
+    @objc dynamic var UserID              = String()
+    @objc dynamic var UserEmail           = String()
 }
 
 
@@ -169,7 +173,7 @@ class LaunchScreenViewController: UIViewController {
         super.didReceiveMemoryWarning()
     }
     
-    func ShowNavController() {
+    @objc func ShowNavController() {
         self.performSegue(withIdentifier: "LaunchScreen2", sender: self)
     }
     

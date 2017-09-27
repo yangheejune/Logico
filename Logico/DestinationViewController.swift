@@ -55,27 +55,10 @@ class DestinationViewController: UIViewController, UIPickerViewDelegate, UIPicke
         self.deliveryServiceCompanyPickerView.delegate = self
         self.wayBillField.delegate = self
         
-        let toolBar = UIToolbar()
-        toolBar.barStyle = UIBarStyle.default
-        toolBar.isTranslucent = true
-        toolBar.tintColor = UIColor(red: 110, green: 194, blue: 250, alpha: 1)
-        toolBar.sizeToFit()
-        
-        let doneButton = UIBarButtonItem(title: "완료", style: UIBarButtonItemStyle.plain, target: self, action: #selector(DestinationViewController.donePicker))
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-        
-        toolBar.setItems([flexibleSpace, flexibleSpace, doneButton], animated: false)
-        toolBar.isUserInteractionEnabled = true
-        
-        
         // 키보드 숫자로 만들기
         wayBillField.keyboardType = UIKeyboardType.numberPad
-        wayBillField.inputAccessoryView = toolBar
         
         deliveryServiceCompany.inputView = deliveryServiceCompanyPickerView
-        deliveryServiceCompany.inputAccessoryView = toolBar
-        
-        
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -88,13 +71,10 @@ class DestinationViewController: UIViewController, UIPickerViewDelegate, UIPicke
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
-        //self.view.setNeedsDisplay()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -103,10 +83,6 @@ class DestinationViewController: UIViewController, UIPickerViewDelegate, UIPicke
             return false
         }
         return true
-    }
-    
-    func donePicker() {
-        self.view.endEditing(true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -131,6 +107,8 @@ class DestinationViewController: UIViewController, UIPickerViewDelegate, UIPicke
             join.locationType = (gDeliveryItem?.deliveryLocationType)!
             
         }
+        deliveryServiceCompany.text = ""
+        wayBillField.text = ""
         
         self.view.endEditing(true)
         // 인텍스 값을 가지고 있어야 함

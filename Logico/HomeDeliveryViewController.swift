@@ -7,52 +7,48 @@
 //
 
 import UIKit
+import Segmentio
 
 class HomeDeliveryViewController: UIViewController {
+    
+    fileprivate var currentStyle = SegmentioStyle.onlyLabel
+    fileprivate var containerViewController: CategoryViewController?
+    
+    @IBOutlet fileprivate weak var bottomCardConstraint: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var heightConstraint: NSLayoutConstraint!
     
     class func create() -> UIViewController {
         let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
         return mainStoryboard.instantiateViewController(withIdentifier: String(describing: self)) as! HomeDeliveryViewController
     }
 
+    override func shouldPerformSegue(withIdentifier identifier: String, sender: Any?) -> Bool {
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let image = UIImage(named: "DeliveryBox")
         self.navigationItem.titleView = UIImageView(image: image)
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
     }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        self.view.endEditing(true)
-    }
-
+ 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    @IBAction func MyDeliveryAction(_ sender: Any) {
-        let storyboard: UIStoryboard = self.storyboard!
-        let nextView = storyboard.instantiateViewController(withIdentifier: "myBoxViewController")
-        present(nextView, animated: true, completion: nil)
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == String(describing: CategoryViewController.self) {
+            containerViewController = segue.destination as? CategoryViewController
+            containerViewController?.style = currentStyle
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

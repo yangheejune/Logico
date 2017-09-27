@@ -10,7 +10,8 @@ import UIKit
 import Realm
 import RealmSwift
 
-class ItemInfomationEditViewController: UIViewController, UITextFieldDelegate {
+class ItemInfomationEditViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+    
     @IBOutlet weak var TFdeliveryType: UITextField!
     @IBOutlet weak var TFdestinationCountry: UITextField!
     @IBOutlet weak var TFdestinationCity: UITextField!
@@ -20,6 +21,14 @@ class ItemInfomationEditViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var TFdestinationHorizontal: UITextField!
     @IBOutlet weak var TFdestinationVertical: UITextField!
     @IBOutlet weak var TFdestinationHeight: UITextField!
+    
+    var UPdeliveryTypePickerView = UIPickerView()
+    var UPdeliveryCountryPickerView = UIPickerView()
+    var UPdeliveryWeightPickerView = UIPickerView()
+    
+    var UPdeliveryTypePickerNumber = 0
+    var UPdeliveryCountryPickerNumber = 0
+    var UPdeliveryWeightPickerNumber = 0
     
     let realm = try! Realm()
     
@@ -35,8 +44,24 @@ class ItemInfomationEditViewController: UIViewController, UITextFieldDelegate {
         self.TFdestinationHorizontal.delegate = self
         self.TFdestinationVertical.delegate = self
         self.TFdestinationHeight.delegate = self
+        self.UPdeliveryTypePickerView.delegate = self
+        self.UPdeliveryCountryPickerView.delegate = self
+        self.UPdeliveryWeightPickerView.delegate = self
 
-        // 데이터 가지고 오기
+       
+        
+        TFdestinationZipcode.keyboardType = UIKeyboardType.numberPad
+         TFdestinationCount.keyboardType = UIKeyboardType.numberPad
+        TFdestinationWeight.keyboardType = UIKeyboardType.numberPad
+        TFdestinationHorizontal.keyboardType = UIKeyboardType.numberPad
+        TFdestinationVertical.keyboardType = UIKeyboardType.numberPad
+        TFdestinationHeight.keyboardType = UIKeyboardType.numberPad
+        
+         // 데이터 가지고 오기
+        TFdeliveryType.inputView = UPdeliveryTypePickerView
+        TFdestinationCountry.inputView = UPdeliveryCountryPickerView
+        TFdestinationWeight.inputView = UPdeliveryWeightPickerView
+       
         if ggdeliveryItem.deliveryType == 0 {
             TFdeliveryType.text = "서류"
         } else {
@@ -57,7 +82,7 @@ class ItemInfomationEditViewController: UIViewController, UITextFieldDelegate {
         default:
             TFdestinationCountry.text = ""
         }
-
+        
         TFdestinationCity.text = ggdeliveryItem.destinationCity
         TFdestinationZipcode.text = ggdeliveryItem.destinationZipcode
         TFdestinationCount.text = String(ggdeliveryItem.destinationCount)
@@ -65,18 +90,52 @@ class ItemInfomationEditViewController: UIViewController, UITextFieldDelegate {
         TFdestinationHorizontal.text = String(ggdeliveryItem.destinationHorizontal)
         TFdestinationVertical.text = String(ggdeliveryItem.destinationVertical)
         TFdestinationHeight.text = String(ggdeliveryItem.destinationHeight)
-        
-        TFdestinationZipcode.keyboardType = UIKeyboardType.numberPad
-         TFdestinationCount.keyboardType = UIKeyboardType.numberPad
-        TFdestinationWeight.keyboardType = UIKeyboardType.numberPad
-        TFdestinationHorizontal.keyboardType = UIKeyboardType.numberPad
-        TFdestinationVertical.keyboardType = UIKeyboardType.numberPad
-        TFdestinationHeight.keyboardType = UIKeyboardType.numberPad
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if pickerView == UPdeliveryTypePickerView {
+            return DeliveryTypePickerDataSource[row]
+        } else if pickerView == UPdeliveryCountryPickerView {
+            return DestinationPickerDataSource[row]
+        } else if pickerView == UPdeliveryWeightPickerView {
+            return WeightPickerDataSource[row]
+        }
+        
+        return ""
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        if pickerView == UPdeliveryTypePickerView {
+            return DeliveryTypePickerDataSource.count
+        } else if pickerView == UPdeliveryCountryPickerView {
+            return DestinationPickerDataSource.count
+        } else if pickerView == UPdeliveryWeightPickerView {
+            return WeightPickerDataSource.count
+        }
+        
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        if pickerView == UPdeliveryTypePickerView {
+            TFdeliveryType.text = DeliveryTypePickerDataSource[row]
+        } else if pickerView == UPdeliveryCountryPickerView {
+            TFdestinationCountry.text = DestinationPickerDataSource[row]
+        } else if pickerView == UPdeliveryWeightPickerView {
+            TFdestinationWeight.text = WeightPickerDataSource[row]
+            UPdeliveryWeightPickerNumber = row
+        }
+        self.view.endEditing(true)
+        
     }
     
     @IBAction func save(_ sender: Any) {
@@ -181,8 +240,7 @@ class ItemInfomationEditViewController: UIViewController, UITextFieldDelegate {
         }
         return true
     }
-    
-    
+ 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }

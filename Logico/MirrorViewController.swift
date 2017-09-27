@@ -40,8 +40,6 @@ class MirrorViewController: UIViewController {
         }
         
         // 키보드 이벤트 발견 될대 나옴
-        //NotificationCenter.default.addObserver(self, selector: #selector(keyboardAppeared), name: .UIKeyboardWillShow, object: nil)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
@@ -49,23 +47,32 @@ class MirrorViewController: UIViewController {
     deinit {
         NotificationCenter.default.removeObserver(self)
     }
-
-    func keyboardAppeared() {
-        print("keyboard Appeared")
-    }
     
-    func keyboardWillShow(notification: NSNotification) {
+    @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y == 0{
-                self.view.frame.origin.y -= keyboardSize.height - 210
+            if self.view.frame.origin.y == 0 {
+                print("keyboardWillShow1 : self.view.frame.origin.y = \(self.view.frame.origin.y), keyboardSize.height = \(keyboardSize.height)")
+                if keyboardSize.height == 0 {
+                    // 해당 배송신청 배송조회 y값이 56이다
+                    self.view.frame.origin.y -= 56
+                } else {
+                    self.view.frame.origin.y -= keyboardSize.height - 160
+                }
+                print("keyboardWillShow1-1 \(self.view.frame.origin.y)")
+            } else {
+                print("keyboardWillShow2 \(self.view.frame.origin.y)")
             }
         }
     }
     
-    func keyboardWillHide(notification: NSNotification) {
+    @objc func keyboardWillHide(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-            if self.view.frame.origin.y != 0{
-                self.view.frame.origin.y += keyboardSize.height - 210
+            if self.view.frame.origin.y != 0 {
+                print("keyboardWillHide1 : self.view.frame.origin.y = \(self.view.frame.origin.y), keyboardSize.height = \(keyboardSize.height)")
+                self.view.frame.origin.y += keyboardSize.height - 160
+                print("keyboardWillHide1-1 \(self.view.frame.origin.y)")
+            } else {
+                print("keyboardWillHide2 \(self.view.frame.origin.y)")
             }
         }
     }
@@ -142,7 +149,6 @@ extension MirrorViewController: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let currentPage = floor(scrollView.contentOffset.x / scrollView.frame.width)
         print("currentPage = \(currentPage)")
-        //ViewIndex = Int(currentPage)
         segmentioView.selectedSegmentioIndex = Int(currentPage)
     }
     

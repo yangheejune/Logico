@@ -112,13 +112,12 @@ class JoinViewController: UIViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func helpPopup(_ sender: Any) {
         let popup: DeliveryPopupView = UINib(nibName: "DeliveryPopupView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! DeliveryPopupView
         
-        let viewColor = UIColor.brown
+        let viewColor = UIColor.clear
         popup.backgroundColor = viewColor.withAlphaComponent(0.3)
         popup.frame = self.view.frame
         
@@ -129,16 +128,4 @@ class JoinViewController: UIViewController {
         
         self.view.addSubview(popup)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

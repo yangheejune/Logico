@@ -11,7 +11,6 @@ import UIKit
 class DeliveryViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
 
     @IBOutlet weak var DeliverType: UITextField!
-    
     @IBOutlet weak var DeliveryCountry: UITextField!
     @IBOutlet weak var DeliveryCity: UITextField!
     @IBOutlet weak var DeliveryZipcode: UITextField!
@@ -103,52 +102,26 @@ class DeliveryViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         self.Volume_Vertical.delegate = self
         self.Volume_Height.delegate = self
         self.DeliveryCount.delegate = self
-        
-        
-        let toolBar = UIToolbar()
-        toolBar.barStyle = UIBarStyle.default
-        toolBar.isTranslucent = true
-        toolBar.tintColor = UIColor(red: 110, green: 194, blue: 250, alpha: 1)
-        toolBar.sizeToFit()
-        
-        let doneButton = UIBarButtonItem(title: "완료", style: UIBarButtonItemStyle.plain, target: self, action: #selector(DeliveryViewController.donePicker))
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.flexibleSpace, target: nil, action: nil)
-
-        toolBar.setItems([flexibleSpace, flexibleSpace, doneButton], animated: false)
-        toolBar.isUserInteractionEnabled = true
-        
 
         // 키보드 숫자로 만들기
         DeliveryZipcode.keyboardType = UIKeyboardType.numberPad
-        DeliveryZipcode.inputAccessoryView = toolBar
         DestinationZipcode.keyboardType = UIKeyboardType.numberPad
-        DeliveryZipcode.inputAccessoryView = toolBar
         WeightField.keyboardType = UIKeyboardType.numberPad
-        WeightField.inputAccessoryView = toolBar
         Volume_horizontal.keyboardType = UIKeyboardType.numberPad
-        Volume_horizontal.inputAccessoryView = toolBar
         Volume_Vertical.keyboardType = UIKeyboardType.numberPad
-        Volume_Vertical.inputAccessoryView = toolBar
         Volume_Height.keyboardType = UIKeyboardType.numberPad
-        Volume_Height.inputAccessoryView = toolBar
         DeliveryCount.keyboardType = UIKeyboardType.numberPad
-        DeliveryCount.inputAccessoryView = toolBar
         
         // PickerView setting
         DeliverType.inputView = DeliveryTypePickerView
         DeliverType.text = "서류"
-        DeliverType.inputAccessoryView = toolBar
-        
         
         DeliveryCountry.inputView = DeliveryCountryPickerView
         DeliveryCountry.text = "대한민국"
-        DeliveryCountry.inputAccessoryView = toolBar
 
         DestinationCountry.inputView = DestinationCountryPickerView
-        DestinationCountry.inputAccessoryView = toolBar
         
         WeightField.inputView = WeightPickerView
-        WeightField.inputAccessoryView = toolBar
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -164,7 +137,7 @@ class DeliveryViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBAction func DestinationHelp(_ sender: Any) {
         let popup: DestinationPopupView = UINib(nibName: "DestinationPopupView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! DestinationPopupView
         
-        let viewColor = UIColor.brown
+        let viewColor = UIColor.clear
         popup.backgroundColor = viewColor.withAlphaComponent(0.3)
         popup.frame = self.view.frame
         
@@ -179,7 +152,7 @@ class DeliveryViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
     @IBAction func WeightHelp(_ sender: Any) {
         let popup: WeightPopupView = UINib(nibName: "WeightPopupView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! WeightPopupView
         
-        let viewColor = UIColor.brown
+        let viewColor = UIColor.clear
         popup.backgroundColor = viewColor.withAlphaComponent(0.3)
         popup.frame = self.view.frame
         
@@ -208,11 +181,6 @@ class DeliveryViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
         }
         
         
-    }
-    
-    func donePicker() {
-        self.view.endEditing(true)
-
     }
     
     // 리턴을 눌렀을 경우 다음 텍스트 선택

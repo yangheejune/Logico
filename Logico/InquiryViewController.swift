@@ -97,12 +97,6 @@ class InquiryViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let viewController = self.storyboard?.instantiateViewController(withIdentifier : "WebView") as! WebViewController
-//        self.navigationController?.pushViewController(viewController, animated: true)
-       // viewController.DestinationServiceType = gDeliveryitem[indexPath.row].deliveryServiceName
-        
-        // 나의 메뉴에 저장
-        //addDeliveryServiceInfo(deliveryServiceName: gDeliveryitem[indexPath.row].deliveryServiceName, deliveryType: gDeliveryitem[indexPath.row].deliveryType, deliveryCountry: gDeliveryitem[indexPath.row].deliveryCountry, deliveryWeight: gDeliveryitem[indexPath.row].deliveryWeight, deliveryCost: gDeliveryitem[indexPath.row].deliveryCost, deliveryRequestTime: gDeliveryitem[indexPath.row].deliveryRequestTime)
     }
     
     func WeightConvertor() {

@@ -183,10 +183,11 @@ class testViewController: UIViewController, UICollectionViewDataSource, UICollec
             // 팝업 뷰를 띄움
             let popup: myItemInfomationPopupView = UINib(nibName: "myItemInfomationPopupView", bundle: nil).instantiate(withOwner: self, options: nil)[0] as! myItemInfomationPopupView
             
-            let viewColor = UIColor.brown
+            let viewColor = UIColor.clear
             popup.backgroundColor = viewColor.withAlphaComponent(0.3)
-            popup.frame = self.view.frame
-            
+            popup.frame.size.height = self.view.frame.size.height
+            popup.frame.size.width = self.view.frame.size.width
+                
             self.view.addSubview(popup)
             
         } else {
@@ -225,7 +226,9 @@ class testViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if deliveryUser == nil && deliveryItem == nil {
+        let anyDeliveryUser: Any? = deliveryUser
+        let anyDeliveryItem: Any? = deliveryItem
+        if anyDeliveryUser == nil && anyDeliveryItem == nil {
             // 알람
             let alert = UIAlertController(title: "조회 실패", message: "자신의 물품정보나 배송지를 선택하지 않았습니다.", preferredStyle: UIAlertControllerStyle.alert)
                 // add an action (button)
@@ -236,10 +239,6 @@ class testViewController: UIViewController, UICollectionViewDataSource, UICollec
             let join=segue.destination as! myBoxJoinViewController
             join.deliveryUser = deliveryUser
             join.deliveryItem = deliveryItem
-            
-            // 물품정보를 팝업창에 띄우기 위함
-//            let joinpopup = segue.destination as! myItemInfomationPopupView
-//            joinpopup.deliveryItem = deliveryItem
         }
             
     }
@@ -248,7 +247,6 @@ class testViewController: UIViewController, UICollectionViewDataSource, UICollec
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     func getDeliveryItemInfo(UserID: String) -> [cMyBoxItemInfo] {
         var rtTotalTask = [cMyBoxItemInfo]()

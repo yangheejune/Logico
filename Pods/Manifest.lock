@@ -1,26 +1,23 @@
 PODS:
-  - Alamofire (4.5.0)
-  - FoldingCell (2.0.5)
-  - Realm (2.10.0):
-    - Realm/Headers (= 2.10.0)
-  - Realm/Headers (2.10.0)
-  - RealmSwift (2.10.0):
-    - Realm (= 2.10.0)
+  - Alamofire (4.5.1)
+  - Realm (2.10.1):
+    - Realm/Headers (= 2.10.1)
+  - Realm/Headers (2.10.1)
+  - RealmSwift (2.10.1):
+    - Realm (= 2.10.1)
   - Segmentio (2.1.2)
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
-  - FoldingCell (~> 2.0.3)
   - RealmSwift
   - Segmentio (~> 2.1)
 
 SPEC CHECKSUMS:
-  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
-  FoldingCell: fb189fc746e95b722a1debf8ef455006b70cae2e
-  Realm: 98b3a25643cf6b3e07d2b99fb43fe0eb9c801dec
-  RealmSwift: 34073ad3a31232bbaf7c0db898c037940284cba2
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  Realm: fc7a317a5c2c9ba91f5f235ede4e2ea76e9eba0c
+  RealmSwift: 505ed6c15942a2e76f5cfa78a8667cfa997ee75b
   Segmentio: f85114993e305bd9c522952eef8c2c4db732fd17
 
-PODFILE CHECKSUM: 09a60e473a940b4e55f7cdd84fa6fe5821b44cd2
+PODFILE CHECKSUM: 7c6cac85d5e77e249800bcb36e46beaa027575f4
 
 COCOAPODS: 1.3.1

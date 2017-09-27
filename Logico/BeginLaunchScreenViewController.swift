@@ -22,7 +22,7 @@ class BeginLaunchScreenViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func ShowNavController() {
+    @objc func ShowNavController() {
         self.performSegue(withIdentifier: "LaunchScreen", sender: self)
     }
 

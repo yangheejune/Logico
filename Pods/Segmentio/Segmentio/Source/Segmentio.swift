@@ -39,7 +39,6 @@ open class Segmentio: UIView {
         didSet {
             if selectedSegmentioIndex != oldValue {
                 reloadSegmentio()
-                
                 valueDidChange?(self, selectedSegmentioIndex)
             }
         }
@@ -327,7 +326,6 @@ open class Segmentio: UIView {
         segmentioCollectionView?.reloadData()
         scrollToItemAtContext()
         moveShapeLayerAtContext()
-        
     }
 
     // MARK: Move shape layer to item

@@ -23,7 +23,6 @@ class myBoxJoinViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     @IBOutlet weak var Volume_Vertical: UITextField!
     @IBOutlet weak var Volume_Height: UITextField!
     @IBOutlet weak var DeliveryCount: UITextField!
-
     
     // 부모 뷰에서 데이터 전달해서 설정해주기 위한 세그웨이 변수
     var deliveryItem = gMyBoxItemInfo()
@@ -125,7 +124,6 @@ class myBoxJoinViewController: UIViewController, UIPickerViewDelegate, UIPickerV
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -197,8 +195,6 @@ class myBoxJoinViewController: UIViewController, UIPickerViewDelegate, UIPickerV
             
             // 여기서 DB 조회
         }
-        
-        
     }
     
     // 리턴을 눌렀을 경우 다음 텍스트 선택
@@ -255,18 +251,5 @@ class myBoxJoinViewController: UIViewController, UIPickerViewDelegate, UIPickerV
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
     }
-
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

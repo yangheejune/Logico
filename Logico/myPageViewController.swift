@@ -73,9 +73,10 @@ class myPageViewController: UIViewController, UICollectionViewDataSource, UIColl
         
         gUserInfomation = getUserInfomation(UserID: "Logico")
         
-        //BoxInofomationCollection.reloadData()
-        //UserInfomationCollection.reloadData()
+        BoxInofomationCollection.reloadData()
+        UserInfomationCollection.reloadData()
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
